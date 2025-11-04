@@ -55,12 +55,12 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen flex" style={{ backgroundColor: '#0f0f10' }}>
       {/* Sidebar */}
       <Sidebar activeTool={activeTool || undefined} onToolSelect={setActiveTool} />
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-72">
+      <div className="flex-1 lg:ml-72" style={{ marginTop: '120px' }}>
         {/* ASCII Banner */}
         {showBanner && (
           <motion.div
@@ -85,34 +85,92 @@ export default function Dashboard() {
           </motion.div>
         )}
 
-        {/* Navigation Tabs */}
-        <div className="sticky top-0 z-40 bg-dark-bg/95 backdrop-blur-lg border-b border-border/50">
+        {/* Navigation Header - Koyu Gri Solid */}
+        <div className="sticky top-0 z-40" style={{ backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center gap-2 py-4">
-              <Terminal className="w-5 h-5 text-neon-green" />
-              <h1 className="text-xl font-bold mr-8" style={{ color: '#00B000' }}>zencefil efendi</h1>
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      activeTab === tab.id
-                        ? 'bg-neon-green/20 text-neon-green border border-neon-green/50'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
+            <div className="flex items-center justify-between py-4">
+              {/* Logo Section with Animation */}
+              <motion.div 
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <motion.div
+                  className="relative"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="absolute inset-0 bg-neon-green/20 blur-lg rounded-lg animate-pulse" />
+                  <Terminal className="w-6 h-6 text-neon-green relative z-10" />
+                </motion.div>
+                <motion.h1 
+                  className="text-xl font-bold font-mono"
+                  style={{ color: '#00B000' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  zencefil efendi
+                </motion.h1>
+                <motion.div
+                  className="flex items-center gap-1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                  <span className="text-xs text-muted-foreground ml-2">ACTIVE</span>
+                </motion.div>
+              </motion.div>
+
+              {/* Navigation Tabs with Icons */}
+              <div className="flex items-center gap-2">
+                {tabs.map((tab, index) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <motion.button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all overflow-hidden ${
+                        isActive
+                          ? 'text-neon-green'
+                          : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      {/* Active Background */}
+                      {isActive && (
+                        <motion.div
+                          className="absolute inset-0 bg-neon-green/10 border border-neon-green/30 rounded-lg"
+                          layoutId="activeTab"
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                      {/* Hover Background */}
+                      <motion.div
+                        className="absolute inset-0 bg-muted/30 rounded-lg"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                      />
+                      <Icon 
+                        className={`w-4 h-4 relative z-10 ${isActive ? 'animate-pulse' : ''}`}
+                      />
+                      <span className="relative z-10">{tab.label}</span>
+                    </motion.button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto p-6">
+        <div className="w-full px-4 py-3">
         {/* Dashboard Tab */}
         {activeTab === 'dashboard' && (
           <motion.div
@@ -128,11 +186,11 @@ export default function Dashboard() {
                 exit={{ opacity: 0, y: -20 }}
                 className="mb-6"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-foreground">Terminal</h2>
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-sm font-bold text-foreground">Terminal</h2>
                   <button
                     onClick={() => setShowTerminal(false)}
-                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                    className="px-2 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-xs transition-colors"
                   >
                     Close
                   </button>
@@ -147,13 +205,13 @@ export default function Dashboard() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="mb-6"
+                className="mb-3"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-foreground">Security Shield</h2>
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-sm font-bold text-foreground">Security Shield</h2>
                   <button
                     onClick={() => setActiveDockTool(null)}
-                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                    className="px-2 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-xs transition-colors"
                   >
                     Close
                   </button>
@@ -162,63 +220,62 @@ export default function Dashboard() {
               </motion.div>
             )}
 
-            {/* Network Tools Section - EN ÜST */}
+            {/* Network Tools Section - EN ÜST - 3 Widget Yan Yana */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-8"
+              className="mb-4"
             >
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-4">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue to-neon-green rounded-xl blur-xl opacity-50 animate-pulse" />
-                    <div className="relative p-3 rounded-xl bg-gradient-to-br from-cyber-blue/20 to-neon-green/20 border border-cyber-blue/30 backdrop-blur-sm">
-                      <Network className="w-6 h-6 text-cyber-blue" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue to-neon-green rounded-lg blur-lg opacity-50 animate-pulse" />
+                    <div className="relative p-2 rounded-lg bg-gradient-to-br from-cyber-blue/20 to-neon-green/20 border border-cyber-blue/30 backdrop-blur-sm">
+                      <Network className="w-4 h-4 text-cyber-blue" />
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-foreground" style={{
-                      textShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
+                    <h2 className="text-lg font-bold text-foreground" style={{
+                      textShadow: '0 0 15px rgba(0, 212, 255, 0.5)',
                     }}>Network Tools</h2>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       Advanced network manipulation & fingerprint spoofing
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neon-green/10 border border-neon-green/30">
-                  <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                  <span className="text-xs font-medium text-neon-green">ACTIVE</span>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neon-green/10 border border-neon-green/30">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+                  <span className="text-[10px] font-medium text-neon-green">ACTIVE</span>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 <MACAddressChanger />
                 <IPAddressChanger />
+                <FingerprintSpoofer />
               </div>
-
-              <FingerprintSpoofer />
             </motion.div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               <ExploitCounter initialCount={192} />
-              <div className="glass-card rounded-xl p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Activity className="w-5 h-5 text-cyber-blue" />
-                  <h3 className="text-lg font-semibold text-foreground">System Health</h3>
+              <div className="glass-card rounded-lg p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Activity className="w-4 h-4 text-cyber-blue" />
+                  <h3 className="text-sm font-semibold text-foreground">System Health</h3>
                 </div>
-                <div className="text-4xl font-bold text-neon-green mb-2">98.5%</div>
-                <div className="text-xs text-muted-foreground">All systems operational</div>
+                <div className="text-2xl font-bold text-neon-green mb-1">98.5%</div>
+                <div className="text-[10px] text-muted-foreground">All systems operational</div>
               </div>
             </div>
 
             {/* Pwned Databases - Full Width */}
-            <div className="mb-6">
+            <div className="mb-3">
               <PwnedDatabases />
             </div>
 
             {/* Main Charts - Stacked */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               <LiveAttackChart />
               <TargetSystems />
             </div>

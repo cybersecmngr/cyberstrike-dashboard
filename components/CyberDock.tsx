@@ -50,32 +50,41 @@ export default function CyberDock({ onToolClick }: CyberDockProps) {
   };
 
   const getYOffset = (id: string) => {
-    if (hoveredId === id) return -20;
+    if (hoveredId === id) return -12;
     return 0;
   };
 
   return (
-    <div className="fixed left-6 z-[9999]" style={{ top: '120px' }}>
-      <div className="relative" style={{ overflow: 'visible' }}>
-        {/* Dock background */}
-        <div className="glass-strong rounded-2xl backdrop-blur-strong border border-border/50 shadow-2xl" style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center',
-          paddingTop: '16px',
-          paddingBottom: '16px',
-          paddingLeft: '12px',
-          paddingRight: '12px',
-          overflow: 'visible'
-        }}>
-          <div style={{ 
+    <div className="fixed top-[73px] left-0 right-0 z-[9999]" style={{ 
+      backgroundColor: '#1a1a1c',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      paddingTop: '8px',
+      paddingBottom: '8px',
+    }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="relative" style={{ overflow: 'visible' }}>
+          {/* Dock background */}
+          <div className="glass-strong rounded-xl backdrop-blur-strong border border-border/50 shadow-xl" style={{ 
             display: 'flex', 
-            flexDirection: 'column', 
-            gap: '8px', 
+            flexDirection: 'row', 
             alignItems: 'center',
-            width: '100%',
-            overflow: 'visible'
+            justifyContent: 'center',
+            paddingTop: '8px',
+            paddingBottom: '8px',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+            overflow: 'visible',
+            gap: '4px'
           }}>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'row', 
+              gap: '4px', 
+              alignItems: 'center',
+              width: '100%',
+              justifyContent: 'center',
+              overflow: 'visible'
+            }}>
             {dockItems.map((item) => {
               const isHovered = hoveredId === item.id;
               const isActive = activeId === item.id;
@@ -98,7 +107,7 @@ export default function CyberDock({ onToolClick }: CyberDockProps) {
                   `}
                   style={{
                     transform: `translateY(${yOffset}px) scale(${scale})`,
-                    transformOrigin: 'top center',
+                    transformOrigin: 'bottom center',
                     overflow: 'visible',
                     zIndex: isHovered ? 100 : 1,
                   }}
@@ -106,16 +115,14 @@ export default function CyberDock({ onToolClick }: CyberDockProps) {
                   {/* Tooltip */}
                   {isHovered && (
                     <div
-                      className="absolute top-1/2 left-full transform -translate-y-1/2 px-3 py-1 rounded-lg text-xs font-medium text-foreground whitespace-nowrap glass-card border border-border/50 shadow-lg animate-bounce z-50"
+                      className="absolute bottom-full left-1/2 transform -translate-x-1/2 px-2 py-1 rounded-lg text-[10px] font-medium text-foreground whitespace-nowrap glass-card border border-border/50 shadow-lg z-50 mb-2"
                       style={{
-                        animation: 'bounce 0.5s ease-in-out',
-                        marginLeft: '32px',
                         pointerEvents: 'none',
                         whiteSpace: 'nowrap',
                       }}
                     >
                       {item.tooltip}
-                      <div className="absolute right-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-border/50" style={{ marginRight: '8px' }} />
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-border/50" style={{ marginTop: '0px' }} />
                     </div>
                   )}
 
@@ -153,7 +160,7 @@ export default function CyberDock({ onToolClick }: CyberDockProps) {
                     {/* Active indicator dot */}
                     {isActive && (
                       <div
-                        className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full animate-pulse"
+                        className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full animate-pulse"
                         style={{ backgroundColor: item.color }}
                       />
                     )}
@@ -161,12 +168,13 @@ export default function CyberDock({ onToolClick }: CyberDockProps) {
                 </div>
               );
             })}
+            </div>
           </div>
-        </div>
 
-        {/* Reflection effect (optional macOS-style) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl opacity-30">
-          <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent" />
+          {/* Reflection effect (optional macOS-style) */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl opacity-20">
+            <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent" />
+          </div>
         </div>
       </div>
     </div>

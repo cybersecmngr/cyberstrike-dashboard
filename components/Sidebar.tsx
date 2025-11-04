@@ -142,9 +142,9 @@ export default function Sidebar({ onToolSelect, activeTool }: SidebarProps) {
   };
 
   return (
-    <div className="hidden lg:block fixed left-0 top-0 h-full w-72 bg-dark-secondary/95 backdrop-blur-lg border-r border-border/50 z-30 overflow-y-auto">
+    <div className="hidden lg:block fixed left-0 top-0 h-full w-72 border-r z-30 overflow-y-auto" style={{ backgroundColor: '#1a1a1c', borderRightColor: 'rgba(255, 255, 255, 0.1)' }}>
       {/* Header */}
-      <div className="sticky top-0 bg-dark-secondary/95 backdrop-blur-lg border-b border-border/50 p-6 z-10">
+      <div className="sticky top-0 border-b p-6 z-10" style={{ backgroundColor: '#1a1a1c', borderBottomColor: 'rgba(255, 255, 255, 0.1)' }}>
         <div className="flex items-center gap-3 mb-2">
           <div className="p-2 rounded-lg bg-neon-green/20 text-neon-green">
             <Zap className="w-5 h-5" />
