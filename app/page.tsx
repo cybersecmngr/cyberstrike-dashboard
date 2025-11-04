@@ -21,6 +21,9 @@ import EncryptionTool from '@/components/dock-tools/EncryptionTool';
 import KeyManager from '@/components/dock-tools/KeyManager';
 import PowerTools from '@/components/dock-tools/PowerTools';
 import SecurityShield from '@/components/dock-tools/SecurityShield';
+import MACAddressChanger from '@/components/widgets/MACAddressChanger';
+import IPAddressChanger from '@/components/widgets/IPAddressChanger';
+import FingerprintSpoofer from '@/components/widgets/FingerprintSpoofer';
 import {
   Shield,
   Activity,
@@ -159,6 +162,43 @@ export default function Dashboard() {
               </motion.div>
             )}
 
+            {/* Network Tools Section - EN ÜST */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue to-neon-green rounded-xl blur-xl opacity-50 animate-pulse" />
+                    <div className="relative p-3 rounded-xl bg-gradient-to-br from-cyber-blue/20 to-neon-green/20 border border-cyber-blue/30 backdrop-blur-sm">
+                      <Network className="w-6 h-6 text-cyber-blue" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-foreground" style={{
+                      textShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
+                    }}>Network Tools</h2>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Advanced network manipulation & fingerprint spoofing
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neon-green/10 border border-neon-green/30">
+                  <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                  <span className="text-xs font-medium text-neon-green">ACTIVE</span>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <MACAddressChanger />
+                <IPAddressChanger />
+              </div>
+
+              <FingerprintSpoofer />
+            </motion.div>
+
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <ExploitCounter initialCount={192} />
@@ -295,6 +335,17 @@ export default function Dashboard() {
             {/* Default Tools View */}
             {!activeDockTool && (
               <>
+                {/* Network Tools */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                  <MACAddressChanger />
+                  <IPAddressChanger />
+                </div>
+
+                {/* Fingerprint Spoofer */}
+                <div className="mb-6">
+                  <FingerprintSpoofer />
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <XSSPayloadGenerator />
                   <HashCracker />
