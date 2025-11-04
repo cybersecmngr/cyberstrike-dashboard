@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
 
     // Parse nmap output (simplified)
     const output = result.stdout;
-    const ports: Array<{
+    const parsedPorts: Array<{
       port: number;
       state: string;
       service: string;
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
     const portRegex = /(\d+)\/(tcp|udp)\s+(\w+)\s+(.+)/g;
     let match;
     while ((match = portRegex.exec(output)) !== null) {
-      ports.push({
+      parsedPorts.push({
         port: parseInt(match[1]),
         state: match[3],
         service: match[4].split(' ')[0],
@@ -133,14 +133,15 @@ export async function POST(request: NextRequest) {
       results: {
         host: sanitizedTarget,
         status: output.includes('Host is up') ? 'up' : 'down',
-        ports,
+        ports: parsedPorts,
         rawOutput: output,
         scanTime: new Date().toISOString(),
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error';
     return NextResponse.json(
-      { success: false, error: error.message || 'Internal server error' },
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }

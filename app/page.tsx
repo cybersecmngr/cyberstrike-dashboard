@@ -13,6 +13,14 @@ import PwnedDatabases from '@/components/PwnedDatabases';
 import ASCIIBanner from '@/components/ASCIIBanner';
 import { RealTimeScanner } from '@/components/RealTimeScanner';
 import Sidebar from '@/components/Sidebar';
+import NetworkScanner from '@/components/dock-tools/NetworkScanner';
+import VulnerabilityScanner from '@/components/dock-tools/VulnerabilityScanner';
+import DatabaseExplorer from '@/components/dock-tools/DatabaseExplorer';
+import CodeEditor from '@/components/dock-tools/CodeEditor';
+import EncryptionTool from '@/components/dock-tools/EncryptionTool';
+import KeyManager from '@/components/dock-tools/KeyManager';
+import PowerTools from '@/components/dock-tools/PowerTools';
+import SecurityShield from '@/components/dock-tools/SecurityShield';
 import {
   Shield,
   Activity,
@@ -34,6 +42,7 @@ export default function Dashboard() {
   const [showBanner, setShowBanner] = useState(false);
   const [activeTool, setActiveTool] = useState<string | null>(null);
   const [showTerminal, setShowTerminal] = useState(false);
+  const [activeDockTool, setActiveDockTool] = useState<string | null>(null);
 
   const tabs = [
     { id: 'dashboard' as TabType, label: 'Dashboard', icon: Shield },
@@ -129,6 +138,27 @@ export default function Dashboard() {
               </motion.div>
             )}
 
+            {/* Security Shield - Show when dock tool 2 is active */}
+            {activeDockTool === '2' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mb-6"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Security Shield</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <SecurityShield />
+              </motion.div>
+            )}
+
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <ExploitCounter initialCount={192} />
@@ -162,12 +192,115 @@ export default function Dashboard() {
             animate={{ opacity: 1 }}
             className="space-y-6"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <XSSPayloadGenerator />
-              <HashCracker />
-            </div>
+            {/* Database Explorer */}
+            {activeDockTool === '4' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Database Explorer</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <DatabaseExplorer />
+              </motion.div>
+            )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Code Editor */}
+            {activeDockTool === '5' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Code Editor</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <CodeEditor />
+              </motion.div>
+            )}
+
+            {/* Encryption Tool */}
+            {activeDockTool === '6' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Encryption Tool</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <EncryptionTool />
+              </motion.div>
+            )}
+
+            {/* Key Manager */}
+            {activeDockTool === '9' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Key Manager</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <KeyManager />
+              </motion.div>
+            )}
+
+            {/* Power Tools */}
+            {activeDockTool === '10' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Power Tools</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <PowerTools />
+              </motion.div>
+            )}
+
+            {/* Default Tools View */}
+            {!activeDockTool && (
+              <>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <XSSPayloadGenerator />
+                  <HashCracker />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="glass-card rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Wifi className="w-5 h-5 text-cyber-blue" />
@@ -207,6 +340,8 @@ export default function Dashboard() {
                 </button>
               </div>
             </div>
+              </>
+            )}
           </motion.div>
         )}
 
@@ -217,7 +352,68 @@ export default function Dashboard() {
             animate={{ opacity: 1 }}
             className="space-y-6"
           >
-            <RealTimeScanner />
+            {/* Network Scanner */}
+            {activeDockTool === '3' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Network Scanner</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <NetworkScanner />
+              </motion.div>
+            )}
+
+            {/* Vulnerability Scanner */}
+            {activeDockTool === '7' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Vulnerability Scanner</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <VulnerabilityScanner />
+              </motion.div>
+            )}
+
+            {/* Port Scanner */}
+            {activeDockTool === '8' && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Port Scanner</h2>
+                  <button
+                    onClick={() => setActiveDockTool(null)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <NetworkScanner />
+              </motion.div>
+            )}
+
+            {/* Default Scanner View */}
+            {!activeDockTool && <RealTimeScanner />}
           </motion.div>
         )}
 
@@ -311,8 +507,29 @@ export default function Dashboard() {
       {/* Cyber Dock - Always visible */}
       <CyberDock 
         onToolClick={(toolId) => {
-          if (toolId === '1') { // Terminal ID
+          setActiveDockTool(toolId);
+          if (toolId === '1') { // Terminal
             setShowTerminal(true);
+            setActiveTab('dashboard');
+          } else if (toolId === '2') { // Security Shield
+            setActiveTab('dashboard');
+          } else if (toolId === '3') { // Network Scanner
+            setActiveTab('scanner');
+          } else if (toolId === '4') { // Database Explorer
+            setActiveTab('tools');
+          } else if (toolId === '5') { // Code Editor
+            setActiveTab('tools');
+          } else if (toolId === '6') { // Encryption Tool
+            setActiveTab('tools');
+          } else if (toolId === '7') { // Vulnerability Scanner
+            setActiveTab('scanner');
+          } else if (toolId === '8') { // Port Scanner
+            setActiveTab('scanner');
+          } else if (toolId === '9') { // Key Manager
+            setActiveTab('tools');
+          } else if (toolId === '10') { // Power Tools
+            setActiveTab('tools');
+          } else {
             setActiveTab('dashboard');
           }
         }}
