@@ -21,24 +21,29 @@ interface AttackData {
 }
 
 export default function LiveAttackChart() {
-  const [data, setData] = useState<AttackData[]>(() => {
-    // Only initialize on client side
-    if (typeof window === 'undefined') return [];
-    const now = new Date();
-    return Array.from({ length: 30 }, (_, i) => {
-      const time = new Date(now.getTime() - (29 - i) * 60000);
-      return {
-        time: time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-        attacks: Math.floor(Math.random() * 100) + 50,
-        blocked: Math.floor(Math.random() * 80) + 30,
-        threats: Math.floor(Math.random() * 40) + 10,
-      };
-    });
-  });
-  const mounted = typeof window !== 'undefined';
+  const [data, setData] = useState<AttackData[]>([]);
+
+  // Initialize data only on client side to prevent hydration mismatch
+  useEffect(() => {
+    // Use setTimeout to ensure this runs after initial render
+    const timer = setTimeout(() => {
+      const now = new Date();
+      const initialData = Array.from({ length: 30 }, (_, i) => {
+        const time = new Date(now.getTime() - (29 - i) * 60000);
+        return {
+          time: time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+          attacks: Math.floor(Math.random() * 100) + 50,
+          blocked: Math.floor(Math.random() * 80) + 30,
+          threats: Math.floor(Math.random() * 40) + 10,
+        };
+      });
+      setData(initialData);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (data.length === 0) return;
 
     const interval = setInterval(() => {
       const now = new Date();
@@ -56,8 +61,8 @@ export default function LiveAttackChart() {
       });
     }, 2000);
 
-    return () => clearInterval(interval);
-  }, [mounted]);
+      return () => clearInterval(interval);
+    }, [data.length]);
 
   return (
     <div className="relative glass-strong rounded-2xl p-8 backdrop-blur-strong border border-border/50 shadow-2xl overflow-hidden">
@@ -92,7 +97,7 @@ export default function LiveAttackChart() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-neon-green to-transparent animate-scan-line opacity-50" />
         </div>
-        {mounted && data.length > 0 ? (
+        {data.length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
@@ -184,7 +189,7 @@ export default function LiveAttackChart() {
       </div>
 
       {/* Stats summary */}
-      {mounted && data.length > 0 && (
+      {data.length > 0 && (
         <div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-border/50">
           <div className="relative text-center group">
             <div className="absolute inset-0 bg-neon-green/5 rounded-lg blur-xl group-hover:bg-neon-green/10 transition-colors" />
@@ -225,22 +230,6 @@ export default function LiveAttackChart() {
         </div>
       )}
       
-      {!mounted && (
-        <div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-border/50">
-          <div className="text-center p-4 rounded-lg border border-border/20">
-            <div className="text-4xl font-bold text-neon-green">-</div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">Total Attacks</div>
-          </div>
-          <div className="text-center p-4 rounded-lg border border-border/20">
-            <div className="text-4xl font-bold text-cyber-blue">-</div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">Blocked</div>
-          </div>
-          <div className="text-center p-4 rounded-lg border border-border/20">
-            <div className="text-4xl font-bold text-danger-red">-</div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">Active Threats</div>
-          </div>
-        </div>
-      )}
       </div>
     </div>
   );
