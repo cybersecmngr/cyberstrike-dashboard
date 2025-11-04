@@ -35,7 +35,11 @@ const dockItems: DockItem[] = [
   { id: '10', name: 'Zap', icon: <Zap className="w-6 h-6" />, tooltip: 'Power Tools', color: '#00FF41' },
 ];
 
-export default function CyberDock() {
+interface CyberDockProps {
+  onToolClick?: (toolId: string) => void;
+}
+
+export default function CyberDock({ onToolClick }: CyberDockProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string>('1');
 
@@ -83,7 +87,10 @@ export default function CyberDock() {
                   key={item.id}
                   onMouseEnter={() => setHoveredId(item.id)}
                   onMouseLeave={() => setHoveredId(null)}
-                  onClick={() => setActiveId(item.id)}
+                  onClick={() => {
+                    setActiveId(item.id);
+                    onToolClick?.(item.id);
+                  }}
                   className={`
                     relative transition-all duration-300 ease-out cursor-pointer
                     ${isActive ? 'opacity-100' : 'opacity-70'}

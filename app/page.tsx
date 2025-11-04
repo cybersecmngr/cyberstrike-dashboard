@@ -33,6 +33,7 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
   const [showBanner, setShowBanner] = useState(false);
   const [activeTool, setActiveTool] = useState<string | null>(null);
+  const [showTerminal, setShowTerminal] = useState(false);
 
   const tabs = [
     { id: 'dashboard' as TabType, label: 'Dashboard', icon: Shield },
@@ -107,6 +108,27 @@ export default function Dashboard() {
             animate={{ opacity: 1 }}
             className="space-y-6"
           >
+            {/* Terminal Widget - Show at top when active */}
+            {showTerminal && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mb-6"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-foreground">Terminal</h2>
+                  <button
+                    onClick={() => setShowTerminal(false)}
+                    className="px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-sm transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+                <TerminalWidget />
+              </motion.div>
+            )}
+
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <ExploitCounter initialCount={192} />
@@ -130,9 +152,6 @@ export default function Dashboard() {
               <LiveAttackChart />
               <TargetSystems />
             </div>
-
-            {/* Terminal Widget */}
-            <TerminalWidget />
           </motion.div>
         )}
 
@@ -290,7 +309,14 @@ export default function Dashboard() {
       </div>
 
       {/* Cyber Dock - Always visible */}
-      <CyberDock />
+      <CyberDock 
+        onToolClick={(toolId) => {
+          if (toolId === '1') { // Terminal ID
+            setShowTerminal(true);
+            setActiveTab('dashboard');
+          }
+        }}
+      />
     </div>
   );
 }
