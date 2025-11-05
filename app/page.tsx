@@ -75,7 +75,7 @@ import AISecurityBypass from '@/components/widgets/AISecurityBypass';
 import AIPredictiveScanner from '@/components/widgets/AIPredictiveScanner';
 import AIAutonomousAgent from '@/components/widgets/AIAutonomousAgent';
 import AIFullAutoPentest from '@/components/widgets/AIFullAutoPentest';
-import IQ200UltimatePentest from '@/components/widgets/IQ200UltimatePentest';
+import IQ200UltimatePentest from '@/components/widgets/ZencefilProtocol';
 import {
   Shield,
   Activity,
