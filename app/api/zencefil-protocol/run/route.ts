@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const progressKey = `iq200_${target}`;
+    const progressKey = `zencefil_${target}`;
 
     // Get progress updates
     if (action === 'get_progress') {
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
     // Start the test
     if (action === 'start') {
-      console.log(`[IQ 200] Starting test for target: ${target}`);
+      console.log(`[ZENCEFIL PROTOCOL] Starting test for target: ${target}`);
 
       // Initialize all 15 phases
       const initialPhases = [
@@ -95,10 +95,10 @@ export async function POST(request: NextRequest) {
       // Run test in background
       (async () => {
         try {
-          const scriptPath = process.cwd() + '/scripts/ai_iq200_ultimate_pentest.py';
+          const scriptPath = process.cwd() + '/scripts/ai_zencefil_protocol.py';
 
-          console.log(`[IQ 200] Script path: ${scriptPath}`);
-          console.log(`[IQ 200] Target: ${target}`);
+          console.log(`[ZENCEFIL PROTOCOL] Script path: ${scriptPath}`);
+          console.log(`[ZENCEFIL PROTOCOL] Target: ${target}`);
 
           // Execute Python script
           const pythonProcess = spawn('python3', [scriptPath, target], {
@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
                         });
                       }
 
-                      console.log(`[IQ 200] Phase ${update.phase_number} started: ${update.phase_name}`);
+                      console.log(`[ZENCEFIL PROTOCOL] Phase ${update.phase_number} started: ${update.phase_name}`);
                     }
 
                     // Handle phase progress
@@ -188,14 +188,14 @@ export async function POST(request: NextRequest) {
                         }
                       }
                       stored.updates.push(update);
-                      console.log(`[IQ 200] Phase ${update.phase_number} completed`);
+                      console.log(`[ZENCEFIL PROTOCOL] Phase ${update.phase_number} completed`);
                     }
 
                     // Handle test complete
                     else if (update.type === 'test_complete') {
                       stored.completed = true;
                       stored.updates.push(update);
-                      console.log(`[IQ 200] Test completed`);
+                      console.log(`[ZENCEFIL PROTOCOL] Test completed`);
                     }
 
                     progressStore.set(progressKey, stored);
@@ -203,7 +203,7 @@ export async function POST(request: NextRequest) {
                 } catch (e) {
                   // Ignore JSON parse errors
                   if (line.trim() && !line.includes('FutureWarning')) {
-                    console.log(`[IQ 200] stderr: ${line.trim()}`);
+                    console.log(`[ZENCEFIL PROTOCOL] stderr: ${line.trim()}`);
                   }
                 }
               }
@@ -211,7 +211,7 @@ export async function POST(request: NextRequest) {
           });
 
           pythonProcess.on('error', (error) => {
-            console.error('[IQ 200] Process error:', error);
+            console.error('[ZENCEFIL PROTOCOL] Process error:', error);
             const stored = progressStore.get(progressKey);
             if (stored) {
               stored.completed = true;
@@ -220,8 +220,8 @@ export async function POST(request: NextRequest) {
           });
 
           pythonProcess.on('close', async (code) => {
-            console.log(`[IQ 200] Process closed with code: ${code}`);
-            console.log(`[IQ 200] stdout length: ${stdout.length}`);
+            console.log(`[ZENCEFIL PROTOCOL] Process closed with code: ${code}`);
+            console.log(`[ZENCEFIL PROTOCOL] stdout length: ${stdout.length}`);
 
             try {
               if (stdout.trim()) {
@@ -232,7 +232,7 @@ export async function POST(request: NextRequest) {
 
                 if (firstBrace !== -1 && lastBrace !== -1) {
                   const jsonStr = stdout.substring(firstBrace, lastBrace + 1);
-                  console.log(`[IQ 200] Extracted JSON (first 200 chars): ${jsonStr.substring(0, 200)}`);
+                  console.log(`[ZENCEFIL PROTOCOL] Extracted JSON (first 200 chars): ${jsonStr.substring(0, 200)}`);
 
                   const result = JSON.parse(jsonStr);
                   const stored = progressStore.get(progressKey);
@@ -258,11 +258,11 @@ export async function POST(request: NextRequest) {
                     }
 
                     progressStore.set(progressKey, stored);
-                    console.log('[IQ 200] Test completed successfully');
-                    console.log(`[IQ 200] Final metrics: ${stored.totalFindings} findings, ${stored.totalEvidence} evidence, ${stored.riskScore} risk`);
+                    console.log('[ZENCEFIL PROTOCOL] Test completed successfully');
+                    console.log(`[ZENCEFIL PROTOCOL] Final metrics: ${stored.totalFindings} findings, ${stored.totalEvidence} evidence, ${stored.riskScore} risk`);
                   }
                 } else {
-                  console.error('[IQ 200] No valid JSON found in stdout');
+                  console.error('[ZENCEFIL PROTOCOL] No valid JSON found in stdout');
                   const stored = progressStore.get(progressKey);
                   if (stored) {
                     stored.completed = true;
@@ -271,12 +271,12 @@ export async function POST(request: NextRequest) {
                 }
               }
             } catch (error) {
-              console.error('[IQ 200] Error parsing result:', error);
-              console.error('[IQ 200] stdout preview:', stdout.substring(0, 500));
+              console.error('[ZENCEFIL PROTOCOL] Error parsing result:', error);
+              console.error('[ZENCEFIL PROTOCOL] stdout preview:', stdout.substring(0, 500));
             }
           });
         } catch (error) {
-          console.error('[IQ 200] Error starting test:', error);
+          console.error('[ZENCEFIL PROTOCOL] Error starting test:', error);
           const stored = progressStore.get(progressKey);
           if (stored) {
             stored.completed = true;
@@ -287,7 +287,7 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: 'IQ 200 Ultimate Pentest started'
+        message: 'ZENCEFIL PROTOCOL started'
       });
     }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-IQ 200 - Ultimate AI Penetration Testing System
+ZENCEFIL PROTOCOL - Ultimate AI Penetration Testing System
 NSA-Level Advanced Offensive Security Framework
 Developed by: Custom Claude Code (C.C.C)
 
@@ -35,9 +35,9 @@ except ImportError as e:
     HAS_MODULES = False
 
 
-class IQ200UltimatePentest:
+class ZENCEFILUltimatePentest:
     """
-    IQ 200 - The Ultimate Penetration Testing System
+    ZENCEFIL PROTOCOL - The Ultimate Penetration Testing System
 
     Features:
     - 15 distinct phases with extreme detail tracking
@@ -55,7 +55,7 @@ class IQ200UltimatePentest:
         self.parsed_url = urlparse(target)
 
         # Session tracking
-        self.session_id = f"IQ200_{int(time.time())}"
+        self.session_id = f"ZENCEFIL_{int(time.time())}"
 
         # Comprehensive results storage
         self.results = {
@@ -103,7 +103,7 @@ class IQ200UltimatePentest:
             'session_id': self.session_id,
             'target': target,
             'total_phases': self.total_phases,
-            'message': 'IQ 200 Ultimate Pentest System initialized'
+            'message': 'ZENCEFIL PROTOCOL Ultimate Pentest System initialized'
         })
 
     def _emit_progress(self, data: Dict):
@@ -189,13 +189,13 @@ class IQ200UltimatePentest:
     # ========================================================================
 
     def run_ultimate_pentest(self) -> Dict:
-        """Execute complete IQ 200 penetration test with all 15 phases"""
+        """Execute complete ZENCEFIL PROTOCOL penetration test with all 15 phases"""
         self._emit_progress({
             'type': 'test_start',
             'session_id': self.session_id,
             'target': self.target,
             'total_phases': self.total_phases,
-            'message': 'IQ 200 Ultimate Pentest starting...'
+            'message': 'ZENCEFIL PROTOCOL Ultimate Pentest starting...'
         })
 
         self.results['status'] = 'running'
@@ -336,8 +336,8 @@ class IQ200UltimatePentest:
 
             self._complete_phase(phase)
 
-            # Phase 7: SQL Injection & Data Exfiltration (IQ 200)
-            phase = self._start_phase(7, "SQL Injection & Data Exfiltration", "IQ 200: Database dumps")
+            # Phase 7: SQL Injection & Data Exfiltration (ZENCEFIL PROTOCOL)
+            phase = self._start_phase(7, "SQL Injection & Data Exfiltration", "ZENCEFIL PROTOCOL: Database dumps")
             self._update_phase_progress(phase, 20, "Analyzing SQL injection vulnerabilities...", "Analysis")
             sqli_data = {'tables': 0, 'rows': 0}
 
@@ -353,8 +353,8 @@ class IQ200UltimatePentest:
             self._update_phase_progress(phase, 100, f"Extracted {sqli_data['tables']} tables, {sqli_data['rows']} rows", "Complete")
             self._complete_phase(phase)
 
-            # Phase 8: Command Injection & File Hunting (IQ 200)
-            phase = self._start_phase(8, "Command Injection & File Hunting", "IQ 200: Recursive file search")
+            # Phase 8: Command Injection & File Hunting (ZENCEFIL PROTOCOL)
+            phase = self._start_phase(8, "Command Injection & File Hunting", "ZENCEFIL PROTOCOL: Recursive file search")
             self._update_phase_progress(phase, 20, "Analyzing command injection vectors...", "Analysis")
             cmd_data = {'files': 0, 'sensitive_files': []}
 
@@ -571,7 +571,7 @@ class IQ200UltimatePentest:
                 'phases_completed': len(self.results['phases']),
                 'risk_score': risk_score,
                 'reports_generated': len(report_files),
-                'message': 'IQ 200 Ultimate Pentest completed successfully'
+                'message': 'ZENCEFIL PROTOCOL Ultimate Pentest completed successfully'
             })
 
             return self.results
@@ -582,7 +582,7 @@ class IQ200UltimatePentest:
             self._emit_progress({
                 'type': 'test_error',
                 'error': str(e),
-                'message': 'IQ 200 Ultimate Pentest encountered an error'
+                'message': 'ZENCEFIL PROTOCOL Ultimate Pentest encountered an error'
             })
             return self.results
 
@@ -630,9 +630,9 @@ class IQ200UltimatePentest:
     def _generate_technical_details(self):
         """Generate technical details"""
         self.results['technical_details'] = {
-            'methodology': 'IQ 200 Ultimate Pentest - NSA-Level Framework',
+            'methodology': 'ZENCEFIL PROTOCOL Ultimate Pentest - NSA-Level Framework',
             'phases': [p['phase_name'] for p in self.results['phases']],
-            'tools_used': ['NSA-Level Exploitation', 'IQ 200 Data Exfiltrator', 'IQ 200 File Hunter', 'Genetic Payload Engine'],
+            'tools_used': ['NSA-Level Exploitation', 'ZENCEFIL PROTOCOL Data Exfiltrator', 'ZENCEFIL PROTOCOL File Hunter', 'Genetic Payload Engine'],
             'total_findings': sum(len(p.get('findings', [])) for p in self.results['phases']),
             'evidence_items': sum(len(p.get('evidence', [])) for p in self.results['phases'])
         }
@@ -691,7 +691,7 @@ class IQ200UltimatePentest:
         os.makedirs(output_dir, exist_ok=True)
 
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        base_filename = f"IQ200_Report_{self.session_id}_{timestamp}"
+        base_filename = f"ZENCEFIL_Report_{self.session_id}_{timestamp}"
 
         # 1. JSON Report (machine-readable)
         json_file = os.path.join(output_dir, f"{base_filename}.json")
@@ -732,14 +732,14 @@ class IQ200UltimatePentest:
         summary = self.results.get('executive_summary', {})
         risk = self.results.get('risk_assessment', {})
 
-        md = f"""# IQ 200 Ultimate Penetration Test Report
+        md = f"""# ZENCEFIL PROTOCOL Ultimate Penetration Test Report
 
 ## Executive Summary
 
 **Target:** {summary.get('target', self.target)}
 **Test Date:** {summary.get('test_date', 'N/A')}
 **Duration:** {summary.get('duration', 'N/A')}
-**Tested By:** IQ 200 Ultimate Pentest System
+**Tested By:** ZENCEFIL PROTOCOL Ultimate Pentest System
 
 ### Risk Assessment
 
@@ -794,7 +794,7 @@ class IQ200UltimatePentest:
 
 ## Test Methodology
 
-This penetration test was conducted using the **IQ 200 Ultimate Pentest System**, which employs NSA-level techniques across 15 comprehensive phases:
+This penetration test was conducted using the **ZENCEFIL PROTOCOL Ultimate Pentest System**, which employs NSA-level techniques across 15 comprehensive phases:
 
 {chr(10).join(f"{i}. {p['phase_name']}" for i, p in enumerate(self.results.get('phases', []), 1))}
 
@@ -816,7 +816,7 @@ This penetration test was conducted using the **IQ 200 Ultimate Pentest System**
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IQ 200 Penetration Test Report - {self.target}</title>
+    <title>ZENCEFIL PROTOCOL Penetration Test Report - {self.target}</title>
     <style>
         body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }}
         .container {{ max-width: 1200px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
@@ -840,7 +840,7 @@ This penetration test was conducted using the **IQ 200 Ultimate Pentest System**
 </head>
 <body>
     <div class="container">
-        <h1>🎯 IQ 200 Ultimate Penetration Test Report</h1>
+        <h1>🎯 ZENCEFIL PROTOCOL Ultimate Penetration Test Report</h1>
 
         <div class="summary">
             <h2>Executive Summary</h2>
@@ -848,7 +848,7 @@ This penetration test was conducted using the **IQ 200 Ultimate Pentest System**
                 <tr><th>Target</th><td>{summary.get('target', self.target)}</td></tr>
                 <tr><th>Test Date</th><td>{summary.get('test_date', 'N/A')}</td></tr>
                 <tr><th>Duration</th><td>{summary.get('duration', 'N/A')}</td></tr>
-                <tr><th>Tested By</th><td>IQ 200 Ultimate Pentest System</td></tr>
+                <tr><th>Tested By</th><td>ZENCEFIL PROTOCOL Ultimate Pentest System</td></tr>
             </table>
         </div>
 
@@ -895,7 +895,7 @@ This penetration test was conducted using the **IQ 200 Ultimate Pentest System**
 
         html += f"""
         <h2>Test Methodology</h2>
-        <p>This penetration test employed the <strong>IQ 200 Ultimate Pentest System</strong>, utilizing NSA-level techniques across 15 comprehensive phases:</p>
+        <p>This penetration test employed the <strong>ZENCEFIL PROTOCOL Ultimate Pentest System</strong>, utilizing NSA-level techniques across 15 comprehensive phases:</p>
         <ol>
 """
 
@@ -931,7 +931,7 @@ This penetration test was conducted using the **IQ 200 Ultimate Pentest System**
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print(json.dumps({'error': 'Usage: python3 ai_iq200_ultimate_pentest.py <target_url>'}))
+        print(json.dumps({'error': 'Usage: python3 ai_zencefil_ultimate_pentest.py <target_url>'}))
         sys.exit(1)
 
     target = sys.argv[1]
@@ -940,8 +940,8 @@ if __name__ == '__main__':
     if not target.startswith(('http://', 'https://')):
         target = 'https://' + target
 
-    # Run IQ 200 Ultimate Pentest
-    pentest = IQ200UltimatePentest(target)
+    # Run ZENCEFIL PROTOCOL Ultimate Pentest
+    pentest = ZENCEFILUltimatePentest(target)
     results = pentest.run_ultimate_pentest()
 
     # Output final results

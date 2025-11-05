@@ -24,7 +24,7 @@ CyberStrike Dashboard is an advanced penetration testing framework that combines
 
 ### 🌟 Highlights
 
-- **IQ 200 Ultimate Pentest** - 15-phase NSA-level automated penetration testing
+- **ZENCEFIL PROTOCOL Ultimate Pentest** - 15-phase NSA-level automated penetration testing
 - **AI Full Auto Pentest** - Intelligent vulnerability discovery and exploitation
 - **Real-time Progress Tracking** - Live monitoring of all security operations
 - **Professional Reporting** - Detailed HTML/JSON/Markdown reports
@@ -36,7 +36,7 @@ CyberStrike Dashboard is an advanced penetration testing framework that combines
 
 ### Core Security Tools
 
-#### 🧠 IQ 200 Ultimate Pentest (ZENCEFIL EFENDI)
+#### 🧠 ZENCEFIL PROTOCOL Ultimate Pentest (ZENCEFIL EFENDI)
 The flagship automated penetration testing system featuring:
 
 - **15 Advanced Phases**:
@@ -154,7 +154,7 @@ npm start
 
 ## 🎮 Usage
 
-### IQ 200 Ultimate Pentest
+### ZENCEFIL PROTOCOL Ultimate Pentest
 
 1. Navigate to **C.C.C (Cyber Combat Center)** section
 2. Click on **ZENCEFIL EFENDI** card
@@ -243,7 +243,7 @@ http://testphp.vulnweb.com
 cyberstrike-dashboard/
 ├── app/
 │   ├── api/                    # API endpoints
-│   │   ├── iq200/             # IQ 200 pentest API
+│   │   ├── zencefil-protocol/ # ZENCEFIL PROTOCOL pentest API
 │   │   ├── ai/                # AI Full Auto API
 │   │   └── [other tools]/     # Individual tool APIs
 │   ├── layout.tsx             # Root layout
@@ -251,13 +251,13 @@ cyberstrike-dashboard/
 │   └── globals.css            # Global styles
 ├── components/
 │   ├── widgets/               # Security widgets
-│   │   ├── IQ200UltimatePentest.tsx
+│   │   ├── ZENCEFILUltimatePentest.tsx
 │   │   ├── AIFullAutoPentest.tsx
 │   │   └── [other tools].tsx
 │   ├── dock-tools/            # Cyber Dock tools
 │   └── ui/                    # UI components
 ├── scripts/                   # Python security scripts
-│   ├── ai_iq200_ultimate_pentest.py
+│   ├── ai_zencefil_protocol.py
 │   ├── ai_full_auto_pentest.py
 │   ├── nsa_level_discovery.py
 │   ├── nsa_level_exploitation.py
@@ -306,7 +306,7 @@ cyberstrike-dashboard/
 **JSON Report:**
 ```json
 {
-  "session_id": "IQ200_1762318876",
+  "session_id": "ZENCEFIL_1762318876",
   "target": "http://testphp.vulnweb.com",
   "risk_score": 60,
   "phases_completed": 15,
@@ -360,7 +360,7 @@ Contributions are welcome! Please follow these guidelines:
 ## 📝 Changelog
 
 ### Version 2.0.0 (Current)
-- Added IQ 200 Ultimate Pentest with 15 phases
+- Added ZENCEFIL PROTOCOL Ultimate Pentest with 15 phases
 - Implemented AI Full Auto Pentest
 - Added detailed findings with expandable phase details
 - Fixed sensitive files rendering (objects → strings)

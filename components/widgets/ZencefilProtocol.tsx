@@ -62,7 +62,7 @@ interface ProgressUpdate {
   timestamp: string;
 }
 
-export default function IQ200UltimatePentest() {
+export default function ZencefilProtocol() {
   const [isOpen, setIsOpen] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -116,7 +116,7 @@ export default function IQ200UltimatePentest() {
       },
       {
         phase_number: 4,
-        phase_name: 'IQ 200 Payload Generation',
+        phase_name: 'ZENCEFIL Payload Generation',
         description: 'Genetic algorithm payload generation (30 pop × 10 gen)',
         status: 'pending',
         progress: 0,
@@ -144,7 +144,7 @@ export default function IQ200UltimatePentest() {
       {
         phase_number: 7,
         phase_name: 'SQL Injection & Data Exfiltration',
-        description: 'Comprehensive database extraction (IQ 200 module)',
+        description: 'Comprehensive database extraction (ZENCEFIL module)',
         status: 'pending',
         progress: 0,
         findings: [],
@@ -153,7 +153,7 @@ export default function IQ200UltimatePentest() {
       {
         phase_number: 8,
         phase_name: 'Command Injection & File Hunting',
-        description: 'Recursive file system exfiltration (IQ 200 module)',
+        description: 'Recursive file system exfiltration (ZENCEFIL module)',
         status: 'pending',
         progress: 0,
         findings: [],
@@ -254,7 +254,7 @@ export default function IQ200UltimatePentest() {
     phaseIndexRef.current = 0;
 
     setIsRunning(true);
-    const newSessionId = `IQ200_${Date.now()}`;
+    const newSessionId = `ZENCEFIL_${Date.now()}`;
     setSessionId(newSessionId);
     setProgressUpdates([]);
     setTotalFindings(0);
@@ -273,7 +273,7 @@ export default function IQ200UltimatePentest() {
 
     // Start real pentest via API
     try {
-      const response = await fetch('/api/iq200/run', {
+      const response = await fetch('/api/zencefil-protocol/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ target: targetUrl, action: 'start' })
@@ -284,7 +284,7 @@ export default function IQ200UltimatePentest() {
       if (data.success) {
         addProgressUpdate({
           type: 'phase_start',
-          message: 'IQ 200 Ultimate Pentest started - NSA-Level attack initiated',
+          message: 'ZENCEFIL PROTOCOL started - NSA-Level attack initiated',
           timestamp: new Date().toISOString()
         });
 
@@ -303,7 +303,7 @@ export default function IQ200UltimatePentest() {
   const pollProgress = async () => {
     const pollInterval = setInterval(async () => {
       try {
-        const response = await fetch('/api/iq200/run', {
+        const response = await fetch('/api/zencefil-protocol/run', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ target: targetUrl, action: 'get_progress' })
@@ -340,7 +340,7 @@ export default function IQ200UltimatePentest() {
             setIsRunning(false);
 
             // Fetch final result
-            const resultResponse = await fetch('/api/iq200/run', {
+            const resultResponse = await fetch('/api/zencefil-protocol/run', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ target: targetUrl, action: 'get_result' })
@@ -384,7 +384,7 @@ export default function IQ200UltimatePentest() {
 
             addProgressUpdate({
               type: 'test_complete',
-              message: 'IQ 200 Ultimate Pentest completed successfully!',
+              message: 'ZENCEFIL PROTOCOL completed successfully!',
               timestamp: new Date().toISOString()
             });
           }
@@ -459,15 +459,15 @@ export default function IQ200UltimatePentest() {
 
     if (format === 'json') {
       content = JSON.stringify(reportData, null, 2);
-      filename = `IQ200_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.json`;
+      filename = `ZENCEFIL_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.json`;
       mimeType = 'application/json';
     } else if (format === 'html') {
       content = generateHTMLReport(reportData);
-      filename = `IQ200_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.html`;
+      filename = `ZENCEFIL_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.html`;
       mimeType = 'text/html';
     } else if (format === 'md') {
       content = generateMarkdownReport(reportData);
-      filename = `IQ200_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.md`;
+      filename = `ZENCEFIL_Report_${sessionId}_${new Date().toISOString().slice(0, 10)}.md`;
       mimeType = 'text/markdown';
     }
 
@@ -487,7 +487,7 @@ export default function IQ200UltimatePentest() {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>IQ 200 Ultimate Pentest Report</title>
+    <title>ZENCEFIL PROTOCOL Report</title>
     <style>
         body { font-family: Arial, sans-serif; background: #0f0f10; color: #e0e0e0; padding: 20px; }
         .header { background: linear-gradient(135deg, #00B000 0%, #008000 100%); padding: 30px; border-radius: 10px; margin-bottom: 30px; }
@@ -505,7 +505,7 @@ export default function IQ200UltimatePentest() {
 </head>
 <body>
     <div class="header">
-        <h1>🔒 IQ 200 ULTIMATE PENTEST REPORT</h1>
+        <h1>🔒 ZENCEFIL PROTOCOL REPORT</h1>
         <p>NSA-Level Advanced Offensive Security Framework</p>
     </div>
 
@@ -569,7 +569,7 @@ export default function IQ200UltimatePentest() {
     <div class="section">
         <p style="text-align: center; color: #666;">
             Report Generated: ${new Date().toLocaleString()}<br/>
-            Powered by IQ 200 Ultimate Pentest System
+            Powered by ZENCEFIL PROTOCOL
         </p>
     </div>
 </body>
@@ -577,7 +577,7 @@ export default function IQ200UltimatePentest() {
   };
 
   const generateMarkdownReport = (data: any) => {
-    return `# IQ 200 Ultimate Penetration Test Report
+    return `# ZENCEFIL PROTOCOL Penetration Test Report
 
 ## Executive Summary
 
@@ -609,7 +609,7 @@ ${f.type === 'cmd' && f.data ? `  - Files Found: ${f.data.files || 0}
 ---
 
 **Report Generated:** ${new Date().toLocaleString()}
-**Powered by:** IQ 200 Ultimate Pentest System
+**Powered by:** ZENCEFIL PROTOCOL
 `;
   };
 
@@ -674,7 +674,7 @@ ${f.type === 'cmd' && f.data ? `  - Files Found: ${f.data.files || 0}
               </span>
               <span className="flex items-center gap-1">
                 <Brain className="w-3 h-3 text-neon-green" />
-                IQ 200 Modules
+                ZENCEFIL Modules
               </span>
               <span className="flex items-center gap-1">
                 <Database className="w-3 h-3 text-neon-green" />
