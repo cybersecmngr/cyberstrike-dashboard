@@ -766,48 +766,6 @@ export default function Dashboard() {
             {/* IQ 200 Ultimate Pentest - Main Tool */}
             <IQ200UltimatePentest />
 
-            {/* Hero Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="relative overflow-hidden rounded-xl"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0, 176, 0, 0.1) 0%, rgba(0, 176, 0, 0.02) 100%)',
-                border: '1px solid rgba(0, 176, 0, 0.3)',
-              }}
-            >
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-neon-green/30 blur-xl rounded-full animate-pulse" />
-                    <Terminal className="w-12 h-12 text-neon-green relative z-10" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-neon-green font-mono">ZENCEFIL EFENDI</h2>
-                    <p className="text-muted-foreground mt-1">Maximum Creativity Data Exfiltration Modules</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                    <Database className="w-6 h-6 text-neon-green mb-2" />
-                    <h3 className="font-semibold text-sm mb-1">SQL Data Exfiltration</h3>
-                    <p className="text-xs text-muted-foreground">Comprehensive database dumps with table enumeration & data extraction</p>
-                  </div>
-                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                    <FileCode className="w-6 h-6 text-neon-green mb-2" />
-                    <h3 className="font-semibold text-sm mb-1">File Hunter</h3>
-                    <p className="text-xs text-muted-foreground">Recursive file system search with sensitive data extraction</p>
-                  </div>
-                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                    <Brain className="w-6 h-6 text-neon-green mb-2" />
-                    <h3 className="font-semibold text-sm mb-1">Genetic Payloads</h3>
-                    <p className="text-xs text-muted-foreground">30 population × 10 generations = Maximum WAF bypass</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
             {/* Features Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Aggressive Data Exfiltrator */}
