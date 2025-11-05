@@ -783,8 +783,8 @@ export default function Dashboard() {
                     <Terminal className="w-12 h-12 text-neon-green relative z-10" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-neon-green font-mono">CUSTOM CLAUDE CODE</h2>
-                    <p className="text-muted-foreground mt-1">IQ 200 - Maximum Creativity Data Exfiltration Modules</p>
+                    <h2 className="text-3xl font-bold text-neon-green font-mono">ZENCEFIL EFENDI</h2>
+                    <p className="text-muted-foreground mt-1">Maximum Creativity Data Exfiltration Modules</p>
                   </div>
                 </div>
 
@@ -925,87 +925,6 @@ export default function Dashboard() {
               </motion.div>
             </div>
 
-            {/* Capabilities Overview */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="p-6 rounded-xl"
-              style={{
-                background: 'linear-gradient(135deg, rgba(26, 26, 28, 0.95) 0%, rgba(15, 15, 16, 0.95) 100%)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-              }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <Zap className="w-8 h-8 text-neon-green" />
-                <div>
-                  <h3 className="text-xl font-bold text-neon-green">IQ 200 Capabilities</h3>
-                  <p className="text-sm text-muted-foreground">Maximum creativity with fully automated evidence collection</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                  <div className="text-3xl font-bold text-neon-green mb-1">60+</div>
-                  <p className="text-xs text-muted-foreground">SQL Payloads</p>
-                  <p className="text-xs text-neon-green mt-1">Mutated</p>
-                </div>
-                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                  <div className="text-3xl font-bold text-neon-green mb-1">30×10</div>
-                  <p className="text-xs text-muted-foreground">Genetic Algorithm</p>
-                  <p className="text-xs text-neon-green mt-1">Population × Generations</p>
-                </div>
-                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                  <div className="text-3xl font-bold text-neon-green mb-1">15</div>
-                  <p className="text-xs text-muted-foreground">Concurrent Workers</p>
-                  <p className="text-xs text-neon-green mt-1">Multi-threaded</p>
-                </div>
-                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
-                  <div className="text-3xl font-bold text-neon-green mb-1">100x</div>
-                  <p className="text-xs text-muted-foreground">More Evidence</p>
-                  <p className="text-xs text-neon-green mt-1">vs Standard</p>
-                </div>
-              </div>
-
-              <div className="mt-6 p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.03)', border: '1px dashed rgba(0, 176, 0, 0.3)' }}>
-                <p className="text-sm text-center text-muted-foreground mb-3">
-                  <span className="text-neon-green font-semibold">Integration Status:</span> Fully integrated into NSA-Level Exploitation
-                </p>
-                <div className="flex items-center justify-center gap-6 text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                    <span className="text-foreground">aggressive_data_exfiltrator.py</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                    <span className="text-foreground">advanced_file_hunter.py</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                    <span className="text-foreground">nsa_level_exploitation.py</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Documentation Link */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="p-4 rounded-xl text-center"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0, 176, 0, 0.1) 0%, rgba(0, 176, 0, 0.02) 100%)',
-                border: '1px solid rgba(0, 176, 0, 0.3)',
-              }}
-            >
-              <p className="text-sm text-muted-foreground">
-                📄 Full documentation available at: <span className="text-neon-green font-mono">scripts/IQ200_CAPABILITIES.md</span>
-              </p>
-              <p className="text-xs text-muted-foreground mt-2">
-                ⚠️ Authorization required • Only use on systems you have permission to test
-              </p>
-            </motion.div>
           </motion.div>
         )}
         </div>
