@@ -225,26 +225,54 @@ export async function POST(request: NextRequest) {
 
             try {
               if (stdout.trim()) {
-                const result = JSON.parse(stdout);
-                const stored = progressStore.get(progressKey);
+                // Extract JSON from mixed output (may contain text/emojis)
+                // Find the first '{' and last '}' to extract pure JSON
+                const firstBrace = stdout.indexOf('{');
+                const lastBrace = stdout.lastIndexOf('}');
 
-                if (stored && result) {
-                  stored.result = result;
-                  stored.completed = true;
+                if (firstBrace !== -1 && lastBrace !== -1) {
+                  const jsonStr = stdout.substring(firstBrace, lastBrace + 1);
+                  console.log(`[IQ 200] Extracted JSON (first 200 chars): ${jsonStr.substring(0, 200)}`);
 
-                  // Update final metrics from result
-                  if (result.summary) {
-                    stored.totalFindings = result.summary.total_findings || stored.totalFindings;
-                    stored.totalEvidence = result.summary.total_evidence || stored.totalEvidence;
-                    stored.riskScore = result.risk_assessment?.overall_score || stored.riskScore;
+                  const result = JSON.parse(jsonStr);
+                  const stored = progressStore.get(progressKey);
+
+                  if (stored && result) {
+                    stored.result = result;
+                    stored.completed = true;
+
+                    // Update final metrics from result - check multiple possible locations
+                    // Priority: executive_summary > technical_details > summary (old format)
+                    if (result.executive_summary) {
+                      stored.totalFindings = result.executive_summary.vulnerabilities_found || 0;
+                      stored.totalEvidence = result.technical_details?.evidence_items || 0;
+                      stored.riskScore = result.risk_assessment?.overall_score || 0;
+                    } else if (result.technical_details) {
+                      stored.totalFindings = result.technical_details.total_findings || 0;
+                      stored.totalEvidence = result.technical_details.evidence_items || 0;
+                      stored.riskScore = result.risk_assessment?.overall_score || 0;
+                    } else if (result.summary) {
+                      stored.totalFindings = result.summary.total_findings || stored.totalFindings;
+                      stored.totalEvidence = result.summary.total_evidence || stored.totalEvidence;
+                      stored.riskScore = result.risk_assessment?.overall_score || stored.riskScore;
+                    }
+
+                    progressStore.set(progressKey, stored);
+                    console.log('[IQ 200] Test completed successfully');
+                    console.log(`[IQ 200] Final metrics: ${stored.totalFindings} findings, ${stored.totalEvidence} evidence, ${stored.riskScore} risk`);
                   }
-
-                  progressStore.set(progressKey, stored);
-                  console.log('[IQ 200] Test completed successfully');
+                } else {
+                  console.error('[IQ 200] No valid JSON found in stdout');
+                  const stored = progressStore.get(progressKey);
+                  if (stored) {
+                    stored.completed = true;
+                    progressStore.set(progressKey, stored);
+                  }
                 }
               }
             } catch (error) {
               console.error('[IQ 200] Error parsing result:', error);
+              console.error('[IQ 200] stdout preview:', stdout.substring(0, 500));
             }
           });
         } catch (error) {
