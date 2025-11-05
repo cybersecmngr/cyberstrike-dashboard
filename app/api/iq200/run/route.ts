@@ -61,9 +61,28 @@ export async function POST(request: NextRequest) {
     if (action === 'start') {
       console.log(`[IQ 200] Starting test for target: ${target}`);
 
+      // Initialize all 15 phases
+      const initialPhases = [
+        { phase_number: 1, phase_name: 'Target Reconnaissance', description: 'Deep intelligence gathering', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 2, phase_name: 'WAF Detection', description: 'Security controls analysis', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 3, phase_name: 'Attack Surface Mapping', description: 'NSA-level discovery', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 4, phase_name: 'Payload Generation', description: 'Genetic algorithm (30×10)', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 5, phase_name: 'Vulnerability Scanning', description: 'AI-powered detection', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 6, phase_name: 'Automated Exploitation', description: 'Multi-vector attacks', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 7, phase_name: 'SQL Injection & Data Exfiltration', description: 'Database compromise', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 8, phase_name: 'Command Injection & File Hunting', description: 'System access & data theft', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 9, phase_name: 'XSS & Client-Side Attacks', description: 'Browser exploitation', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 10, phase_name: 'Authentication Bypass', description: 'Access control bypass', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 11, phase_name: 'Business Logic Testing', description: 'Application logic flaws', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 12, phase_name: 'Post-Exploitation', description: 'Privilege escalation', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 13, phase_name: 'Evidence Collection', description: 'Proof of compromise', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 14, phase_name: 'Risk Assessment', description: 'CVSS & impact analysis', status: 'pending', progress: 0, findings: [], sub_tasks: [] },
+        { phase_number: 15, phase_name: 'Report Generation', description: 'Professional documentation', status: 'pending', progress: 0, findings: [], sub_tasks: [] }
+      ];
+
       // Initialize progress
       progressStore.set(progressKey, {
-        phases: [],
+        phases: initialPhases,
         currentPhase: 0,
         updates: [],
         totalFindings: 0,

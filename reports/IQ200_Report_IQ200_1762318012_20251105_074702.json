@@ -1,0 +1,579 @@
+{
+  "session_id": "IQ200_1762318012",
+  "target": "https://www.yapayhesap.com/",
+  "started_at": "2025-11-05T07:46:52.108663",
+  "phases": [
+    {
+      "phase_number": 1,
+      "phase_name": "Target Reconnaissance",
+      "description": "OSINT and passive intelligence",
+      "started_at": "2025-11-05T07:46:52.108786",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "OSINT",
+          "timestamp": "2025-11-05T07:46:52.108799",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "info",
+          "data": "Target analyzed"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:46:52.612626",
+      "duration_seconds": 0.50384
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "WAF Detection",
+      "description": "Detecting security controls",
+      "started_at": "2025-11-05T07:46:52.612720",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T07:46:52.612743",
+          "status": "completed"
+        },
+        {
+          "name": "Probing",
+          "timestamp": "2025-11-05T07:46:52.612753",
+          "status": "completed"
+        },
+        {
+          "name": "Detection",
+          "timestamp": "2025-11-05T07:46:59.591494",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "waf",
+          "data": {
+            "waf_detected": false,
+            "waf_type": null,
+            "confidence": 0.0,
+            "signatures_matched": [],
+            "rate_limit_detected": false,
+            "recommended_bypass": []
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:46:59.591615",
+      "duration_seconds": 6.978895
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Attack Surface Mapping",
+      "description": "NSA-level discovery",
+      "started_at": "2025-11-05T07:46:59.591685",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T07:46:59.591728",
+          "status": "completed"
+        },
+        {
+          "name": "Skipped",
+          "timestamp": "2025-11-05T07:46:59.591756",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "discovery",
+          "note": "Discovery module unavailable"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:46:59.591773",
+      "duration_seconds": 8.8e-05
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Payload Generation",
+      "description": "Genetic algorithm (30\u00d710)",
+      "started_at": "2025-11-05T07:46:59.591798",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T07:46:59.591821",
+          "status": "completed"
+        },
+        {
+          "name": "Fallback",
+          "timestamp": "2025-11-05T07:46:59.591845",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "payloads",
+          "count": 4,
+          "note": "Basic payloads (no mutation engine)"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:46:59.591859",
+      "duration_seconds": 6.1e-05
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Vulnerability Scanning",
+      "description": "AI-powered detection",
+      "started_at": "2025-11-05T07:46:59.591883",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T07:46:59.591909",
+          "status": "completed"
+        },
+        {
+          "name": "Scanning",
+          "timestamp": "2025-11-05T07:46:59.895424",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:00.200590",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "scan",
+          "vulns_found": 12
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:00.200674",
+      "duration_seconds": 0.608791
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Automated Exploitation",
+      "description": "Exploiting vulnerabilities",
+      "started_at": "2025-11-05T07:47:00.200708",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Init",
+          "timestamp": "2025-11-05T07:47:00.200727",
+          "status": "completed"
+        },
+        {
+          "name": "Skipped",
+          "timestamp": "2025-11-05T07:47:00.200741",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "exploit",
+          "note": "Exploitation engine unavailable",
+          "simulated": true
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:00.200752",
+      "duration_seconds": 4.4e-05
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "SQL Injection & Data Exfiltration",
+      "description": "IQ 200: Database dumps",
+      "started_at": "2025-11-05T07:47:00.200767",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T07:47:00.200785",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:00.200808",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "sqli",
+          "data": {
+            "tables": 0,
+            "rows": 0
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:00.200819",
+      "duration_seconds": 5.2e-05
+    },
+    {
+      "phase_number": 8,
+      "phase_name": "Command Injection & File Hunting",
+      "description": "IQ 200: Recursive file search",
+      "started_at": "2025-11-05T07:47:00.200832",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T07:47:00.200845",
+          "status": "completed"
+        },
+        {
+          "name": "Skipped",
+          "timestamp": "2025-11-05T07:47:00.200858",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "cmd",
+          "data": {
+            "files": 0,
+            "sensitive_files": []
+          },
+          "note": "File hunter unavailable"
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:00.200869",
+      "duration_seconds": 3.7e-05
+    },
+    {
+      "phase_number": 9,
+      "phase_name": "XSS & Client-Side Attacks",
+      "description": "Session hijacking vectors",
+      "started_at": "2025-11-05T07:47:00.200881",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "XSS Test",
+          "timestamp": "2025-11-05T07:47:00.200894",
+          "status": "completed"
+        },
+        {
+          "name": "Client-Side",
+          "timestamp": "2025-11-05T07:47:00.502884",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:00.803963",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "xss",
+          "count": 0
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:00.804047",
+      "duration_seconds": 0.603166
+    },
+    {
+      "phase_number": 10,
+      "phase_name": "Authentication Bypass",
+      "description": "Auth & authz flaws",
+      "started_at": "2025-11-05T07:47:00.804068",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Default Creds",
+          "timestamp": "2025-11-05T07:47:00.804080",
+          "status": "completed"
+        },
+        {
+          "name": "Weak Pass",
+          "timestamp": "2025-11-05T07:47:01.009122",
+          "status": "completed"
+        },
+        {
+          "name": "SQLi Auth",
+          "timestamp": "2025-11-05T07:47:01.214265",
+          "status": "completed"
+        },
+        {
+          "name": "AuthZ Test",
+          "timestamp": "2025-11-05T07:47:01.214412",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:01.414793",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "auth",
+          "bypassed": false,
+          "methods": [],
+          "tested": [
+            "default_creds",
+            "weak_passwords",
+            "sqli_bypass",
+            "authz_flaws"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:01.414918",
+      "duration_seconds": 0.61085
+    },
+    {
+      "phase_number": 11,
+      "phase_name": "Business Logic Testing",
+      "description": "Logic vulnerabilities",
+      "started_at": "2025-11-05T07:47:01.414966",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Analysis",
+          "timestamp": "2025-11-05T07:47:01.414993",
+          "status": "completed"
+        },
+        {
+          "name": "Testing",
+          "timestamp": "2025-11-05T07:47:01.716957",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:02.022163",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "logic",
+          "issues": 2
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:02.022255",
+      "duration_seconds": 0.607289
+    },
+    {
+      "phase_number": 12,
+      "phase_name": "Post-Exploitation",
+      "description": "Privilege escalation simulation",
+      "started_at": "2025-11-05T07:47:02.022289",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Access Analysis",
+          "timestamp": "2025-11-05T07:47:02.022315",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:02.022339",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "post_exploit",
+          "access": false,
+          "access_level": "none",
+          "escalation_paths": [],
+          "techniques": [
+            "enumeration",
+            "privilege_escalation",
+            "persistence"
+          ]
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:02.022352",
+      "duration_seconds": 6.3e-05
+    },
+    {
+      "phase_number": 13,
+      "phase_name": "Evidence Collection",
+      "description": "Comprehensive proof documentation",
+      "started_at": "2025-11-05T07:47:02.022369",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Screenshots",
+          "timestamp": "2025-11-05T07:47:02.022385",
+          "status": "completed"
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-05T07:47:02.323746",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:02.625001",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "evidence",
+          "count": 0
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:02.625153",
+      "duration_seconds": 0.602784
+    },
+    {
+      "phase_number": 14,
+      "phase_name": "Risk Assessment",
+      "description": "CVSS scoring and impact analysis",
+      "started_at": "2025-11-05T07:47:02.625214",
+      "status": "completed",
+      "progress": 100,
+      "sub_tasks": [
+        {
+          "name": "Severity",
+          "timestamp": "2025-11-05T07:47:02.625244",
+          "status": "completed"
+        },
+        {
+          "name": "CVSS",
+          "timestamp": "2025-11-05T07:47:02.830330",
+          "status": "completed"
+        },
+        {
+          "name": "Exploitability",
+          "timestamp": "2025-11-05T07:47:02.830502",
+          "status": "completed"
+        },
+        {
+          "name": "Impact",
+          "timestamp": "2025-11-05T07:47:02.830530",
+          "status": "completed"
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-05T07:47:02.830562",
+          "status": "completed"
+        }
+      ],
+      "findings": [
+        {
+          "type": "risk",
+          "score": 0.0,
+          "severity": "Low",
+          "metrics": {
+            "cvss": 0.0,
+            "exploitability": 0,
+            "impact": "Medium"
+          }
+        }
+      ],
+      "evidence": [],
+      "metrics": {},
+      "completed_at": "2025-11-05T07:47:02.830579",
+      "duration_seconds": 0.205365
+    }
+  ],
+  "vulnerabilities": [],
+  "exploits": [],
+  "evidence": [],
+  "intelligence": {},
+  "risk_assessment": {
+    "overall_score": 0.0,
+    "severity": "Low",
+    "cvss_base": 0.0,
+    "exploitability": 0,
+    "vulnerability_count": 0,
+    "exploit_count": 0,
+    "critical_findings": 0
+  },
+  "recommendations": [
+    {
+      "priority": "High",
+      "issue": "General Security Posture",
+      "recommendation": "Implement Web Application Firewall (WAF)",
+      "affected_parameter": "All"
+    },
+    {
+      "priority": "Medium",
+      "issue": "Security Headers",
+      "recommendation": "Add security headers: CSP, X-Frame-Options, HSTS",
+      "affected_parameter": "HTTP Response"
+    }
+  ],
+  "executive_summary": {
+    "target": "https://www.yapayhesap.com/",
+    "test_date": "2025-11-05",
+    "duration": "0.00 seconds",
+    "phases_completed": 14,
+    "vulnerabilities_found": 0,
+    "critical_findings": 0,
+    "risk_level": "Low",
+    "overall_score": 0.0
+  },
+  "technical_details": {
+    "methodology": "IQ 200 Ultimate Pentest - NSA-Level Framework",
+    "phases": [
+      "Target Reconnaissance",
+      "WAF Detection",
+      "Attack Surface Mapping",
+      "Payload Generation",
+      "Vulnerability Scanning",
+      "Automated Exploitation",
+      "SQL Injection & Data Exfiltration",
+      "Command Injection & File Hunting",
+      "XSS & Client-Side Attacks",
+      "Authentication Bypass",
+      "Business Logic Testing",
+      "Post-Exploitation",
+      "Evidence Collection",
+      "Risk Assessment"
+    ],
+    "tools_used": [
+      "NSA-Level Exploitation",
+      "IQ 200 Data Exfiltrator",
+      "IQ 200 File Hunter",
+      "Genetic Payload Engine"
+    ],
+    "total_findings": 14,
+    "evidence_items": 0
+  },
+  "timeline": [],
+  "status": "running"
+}
