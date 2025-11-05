@@ -11,8 +11,6 @@ import XSSPayloadGenerator from '@/components/XSSPayloadGenerator';
 import HashCracker from '@/components/HashCracker';
 import PwnedDatabases from '@/components/PwnedDatabases';
 import ASCIIBanner from '@/components/ASCIIBanner';
-import { RealTimeScanner } from '@/components/RealTimeScanner';
-import Sidebar from '@/components/Sidebar';
 import NetworkScanner from '@/components/dock-tools/NetworkScanner';
 import VulnerabilityScanner from '@/components/dock-tools/VulnerabilityScanner';
 import DatabaseExplorer from '@/components/dock-tools/DatabaseExplorer';
@@ -24,6 +22,46 @@ import SecurityShield from '@/components/dock-tools/SecurityShield';
 import MACAddressChanger from '@/components/widgets/MACAddressChanger';
 import IPAddressChanger from '@/components/widgets/IPAddressChanger';
 import FingerprintSpoofer from '@/components/widgets/FingerprintSpoofer';
+import SSLAnalyzer from '@/components/widgets/SSLAnalyzer';
+import ReverseShellGenerator from '@/components/widgets/ReverseShellGenerator';
+import SubdomainEnumerator from '@/components/widgets/SubdomainEnumerator';
+import DNSEnumerator from '@/components/widgets/DNSEnumerator';
+import AutomatedVulnScanner from '@/components/widgets/AutomatedVulnScanner';
+import ReportGenerator from '@/components/widgets/ReportGenerator';
+import LogAnalyzer from '@/components/widgets/LogAnalyzer';
+import PasswordGenerator from '@/components/widgets/PasswordGenerator';
+import SQLInjectionTester from '@/components/widgets/SQLInjectionTester';
+import WhoIsLookup from '@/components/widgets/WhoIsLookup';
+import AdvancedHashGenerator from '@/components/widgets/AdvancedHashGenerator';
+import DirectoryBruteforcer from '@/components/widgets/DirectoryBruteforcer';
+import AdvancedPortScanner from '@/components/widgets/AdvancedPortScanner';
+import EncoderDecoder from '@/components/widgets/EncoderDecoder';
+import ExploitPayloadGenerator from '@/components/widgets/ExploitPayloadGenerator';
+import APISecurityTester from '@/components/widgets/APISecurityTester';
+import NetworkTrafficAnalyzer from '@/components/widgets/NetworkTrafficAnalyzer';
+import MalwareAnalyzer from '@/components/widgets/MalwareAnalyzer';
+import SETToolkit from '@/components/widgets/SETToolkit';
+import WirelessAttackSuite from '@/components/widgets/WirelessAttackSuite';
+import ForensicTools from '@/components/widgets/ForensicTools';
+import AdvancedRecon from '@/components/widgets/AdvancedRecon';
+import PostExploit from '@/components/widgets/PostExploit';
+import WAFBypass from '@/components/widgets/WAFBypass';
+import ContainerSecurity from '@/components/widgets/ContainerSecurity';
+import WebAppScanner from '@/components/widgets/WebAppScanner';
+import APISecurityScanner from '@/components/widgets/APISecurityScanner';
+import CryptoSecurityScanner from '@/components/widgets/CryptoSecurityScanner';
+import CloudInfrastructureScanner from '@/components/widgets/CloudInfrastructureScanner';
+import ADSecurityScanner from '@/components/widgets/ADSecurityScanner';
+import ZeroDayHunter from '@/components/widgets/ZeroDayHunter';
+import BehavioralBiometricBypass from '@/components/widgets/BehavioralBiometricBypass';
+import QuantumCryptoAnalyzer from '@/components/widgets/QuantumCryptoAnalyzer';
+import MemoryForensicExploiter from '@/components/widgets/MemoryForensicExploiter';
+import MultiVectorOrchestrator from '@/components/widgets/MultiVectorOrchestrator';
+import WebPenFramework from '@/components/widgets/WebPenFramework';
+import NetworkPenTester from '@/components/widgets/NetworkPenTester';
+import AIVulnPredictor from '@/components/widgets/AIVulnPredictor';
+import ExploitChainBuilder from '@/components/widgets/ExploitChainBuilder';
+import ThreatIntelMapper from '@/components/widgets/ThreatIntelMapper';
 import {
   Shield,
   Activity,
@@ -36,14 +74,14 @@ import {
   Wifi,
   Network,
   FileCode,
+  Zap,
 } from 'lucide-react';
 
-type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint';
+type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint' | 'advanced' | 'zde';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
   const [showBanner, setShowBanner] = useState(false);
-  const [activeTool, setActiveTool] = useState<string | null>(null);
   const [showTerminal, setShowTerminal] = useState(false);
   const [activeDockTool, setActiveDockTool] = useState<string | null>(null);
 
@@ -52,15 +90,14 @@ export default function Dashboard() {
     { id: 'tools' as TabType, label: 'Tools', icon: Code2 },
     { id: 'scanner' as TabType, label: 'Scanner', icon: Scan },
     { id: 'osint' as TabType, label: 'OSINT', icon: Search },
+    { id: 'advanced' as TabType, label: 'Advanced', icon: Zap },
+    { id: 'zde' as TabType, label: 'Z.D.E', icon: Bug },
   ];
 
   return (
-    <div className="min-h-screen flex" style={{ backgroundColor: '#0f0f10' }}>
-      {/* Sidebar */}
-      <Sidebar activeTool={activeTool || undefined} onToolSelect={setActiveTool} />
-
+    <div className="min-h-screen" style={{ backgroundColor: '#0f0f10' }}>
       {/* Main Content */}
-      <div className="flex-1 lg:ml-72" style={{ marginTop: '120px' }}>
+      <div className="w-full" style={{ marginTop: '180px', paddingTop: '20px' }}>
         {/* ASCII Banner */}
         {showBanner && (
           <motion.div
@@ -86,7 +123,7 @@ export default function Dashboard() {
         )}
 
         {/* Navigation Header - Koyu Gri Solid */}
-        <div className="sticky top-0 z-40" style={{ backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <div className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between py-4">
               {/* Logo Section with Animation */}
@@ -253,6 +290,23 @@ export default function Dashboard() {
                 <MACAddressChanger />
                 <IPAddressChanger />
                 <FingerprintSpoofer />
+                <SSLAnalyzer />
+                <ReverseShellGenerator />
+                <SubdomainEnumerator />
+                <DNSEnumerator />
+                <AutomatedVulnScanner />
+                <ReportGenerator />
+                <LogAnalyzer />
+                <PasswordGenerator />
+                <SQLInjectionTester />
+                <WhoIsLookup />
+                <AdvancedHashGenerator />
+                <DirectoryBruteforcer />
+                <AdvancedPortScanner />
+                <EncoderDecoder />
+                <ExploitPayloadGenerator />
+                <APISecurityTester />
+                <NetworkTrafficAnalyzer />
               </div>
             </motion.div>
 
@@ -521,7 +575,15 @@ export default function Dashboard() {
             )}
 
             {/* Default Scanner View */}
-            {!activeDockTool && <RealTimeScanner />}
+            {!activeDockTool && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <WebAppScanner />
+                <APISecurityScanner />
+                <CryptoSecurityScanner />
+                <CloudInfrastructureScanner />
+                <ADSecurityScanner />
+              </div>
+            )}
           </motion.div>
         )}
 
@@ -606,6 +668,48 @@ export default function Dashboard() {
                   Search Profiles
                 </button>
               </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Advanced Tab */}
+        {activeTab === 'advanced' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-3"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <MalwareAnalyzer />
+              <SETToolkit />
+              <WirelessAttackSuite />
+              <ForensicTools />
+              <AdvancedRecon />
+              <PostExploit />
+              <WAFBypass />
+              <ContainerSecurity />
+            </div>
+          </motion.div>
+        )}
+
+        {/* Z.D.E (Zero Day Exploit) Tab */}
+        {activeTab === 'zde' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-3"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <ZeroDayHunter />
+              <BehavioralBiometricBypass />
+              <QuantumCryptoAnalyzer />
+              <MemoryForensicExploiter />
+              <MultiVectorOrchestrator />
+              <WebPenFramework />
+              <NetworkPenTester />
+              <AIVulnPredictor />
+              <ExploitChainBuilder />
+              <ThreatIntelMapper />
             </div>
           </motion.div>
         )}

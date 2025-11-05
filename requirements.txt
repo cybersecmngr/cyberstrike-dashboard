@@ -1,0 +1,14 @@
+dnspython>=2.4.2
+python-dateutil>=2.8.2
+requests>=2.31.0
+bcrypt>=4.0.0
+scapy>=2.5.0
+cryptography>=41.0.0
+pymongo>=4.5.0
+psycopg2-binary>=2.9.0
+PyMySQL>=1.1.0
+qrcode[pil]>=7.4.2
+yara-python>=4.3.1
+pyobjc-framework-CoreWLAN>=10.0; sys_platform == "darwin"
+ldap3>=2.9.1
+
