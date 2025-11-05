@@ -124,7 +124,7 @@ export default function AIIntelligentPayload() {
                     <div className="text-[10px] opacity-80 mt-1">Types: {result.summary.payload_types || 0}</div>
                   </div>
                 )}
-                {result.payloads && Object.keys(result.payloads).length > 0 && (
+                {result.payloads && typeof result.payloads === 'object' && Object.keys(result.payloads).length > 0 && (
                   <div className="mb-2 text-[10px]">
                     <div className="font-semibold mb-1">Payload Types:</div>
                     <div className="space-y-1 max-h-96 overflow-y-auto">

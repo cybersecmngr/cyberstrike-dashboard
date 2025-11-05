@@ -21,6 +21,15 @@ interface ProgressUpdate {
 interface ProgressStoreItem {
   currentStage: string;
   stageProgress: Record<string, ProgressUpdate>;
+  discovery_progress?: {
+    stage?: string;
+    message?: string;
+    endpoints_found?: number;
+    scanned?: number;
+    total?: number;
+    found?: number;
+    [key: string]: unknown;
+  };
   result: {
     target?: string;
     stages?: unknown[];
@@ -34,7 +43,16 @@ interface ProgressStoreItem {
 }
 
 // Shared in-memory store (in production, use Redis)
-const progressStore = new Map<string, ProgressStoreItem>();
+// Use global variable to persist across hot reloads in Next.js development
+declare global {
+  var __progressStore: Map<string, ProgressStoreItem> | undefined;
+}
+
+if (!global.__progressStore) {
+  global.__progressStore = new Map<string, ProgressStoreItem>();
+}
+
+const progressStore = global.__progressStore;
 
 export { progressStore, type ProgressStoreItem, type ProgressUpdate };
 

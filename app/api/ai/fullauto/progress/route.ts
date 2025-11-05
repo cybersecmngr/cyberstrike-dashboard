@@ -16,6 +16,15 @@ export async function GET(request: NextRequest) {
     const progressKey = `pentest_${target}`;
     const stored = progressStore.get(progressKey);
 
+    console.log(`[Progress API] Request for target: ${target}`);
+    console.log(`[Progress API] Progress key: ${progressKey}`);
+    console.log(`[Progress API] Store size: ${progressStore.size}`);
+    console.log(`[Progress API] Stored data:`, stored ? {
+      currentStage: stored.currentStage,
+      completed: stored.completed,
+      stageCount: Object.keys(stored.stageProgress).length
+    } : 'null');
+
     if (!stored) {
       return NextResponse.json({
         currentStage: 'Not started',
@@ -27,6 +36,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       currentStage: stored.currentStage,
       stageProgress: stored.stageProgress,
+      discovery_progress: stored.discovery_progress,
       completed: stored.completed,
       result: stored.completed ? stored.result : null
     });

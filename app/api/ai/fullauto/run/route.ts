@@ -37,13 +37,18 @@ export async function POST(request: NextRequest) {
 
     // Start the test in background
     if (action === 'start') {
+      console.log(`[AI Full Auto Pentest] Initializing for target: ${target}`);
+      console.log(`[AI Full Auto Pentest] Progress key: ${progressKey}`);
+      
       // Initialize progress
       progressStore.set(progressKey, {
-        currentStage: 'Initializing...',
+        currentStage: 'Initializing Python script...',
         stageProgress: {},
         result: null,
         completed: false
       });
+      
+      console.log(`[AI Full Auto Pentest] Progress initialized, store size: ${progressStore.size}`);
 
       // Run test in background (don't await)
       (async () => {
@@ -53,8 +58,24 @@ export async function POST(request: NextRequest) {
             try {
               const scriptPath = process.cwd() + '/scripts/ai_full_auto_pentest.py';
               
+              console.log(`[AI Full Auto Pentest] Starting test for: ${target}`);
+              console.log(`[AI Full Auto Pentest] Script path: ${scriptPath}`);
+              
               // Execute script and capture output line by line
-              const pythonProcess = spawn('python3', [scriptPath, target]);
+              const pythonProcess = spawn('python3', [scriptPath, target], {
+                cwd: process.cwd(),
+                env: process.env
+              });
+              
+              pythonProcess.on('error', (error) => {
+                console.error('[AI Full Auto Pentest] Process error:', error);
+                const stored = progressStore.get(progressKey);
+                if (stored) {
+                  stored.currentStage = `Error: ${error.message}`;
+                  stored.completed = true;
+                  progressStore.set(progressKey, stored);
+                }
+              });
               
               let stdout = '';
               
@@ -68,43 +89,105 @@ export async function POST(request: NextRequest) {
                 for (const line of lines) {
                   if (line.trim().startsWith('{')) {
                     try {
-                      const update = JSON.parse(line.trim()) as ProgressUpdate;
+                      const update = JSON.parse(line.trim()) as ProgressUpdate & { discovery?: string; [key: string]: unknown };
+                      
                       if (update.stage) {
                         const stored = progressStore.get(progressKey);
                         if (stored) {
                           stored.currentStage = update.message || `${update.stage}: ${update.status}`;
                           stored.stageProgress[update.stage] = update;
                           progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Stage update: ${update.stage} - ${update.status}`);
+                        }
+                      } else if (update.discovery) {
+                        // Handle discovery progress updates
+                        const stored = progressStore.get(progressKey);
+                        if (stored) {
+                          stored.currentStage = update.message || 'Discovery in progress...';
+                          // Store discovery progress separately
+                          (stored as { discovery_progress?: unknown }).discovery_progress = update;
+                          progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Discovery progress: ${update.message}`);
                         }
                       }
                     } catch {
-                      // Ignore parse errors
+                      // Log non-JSON lines for debugging
+                      if (line.trim() && !line.trim().startsWith('{')) {
+                        console.log(`[AI Full Auto Pentest] Python stderr: ${line.trim()}`);
+                      }
                     }
+                  } else if (line.trim()) {
+                    // Log non-JSON stderr output for debugging
+                    console.log(`[AI Full Auto Pentest] Python stderr (non-JSON): ${line.trim()}`);
                   }
                 }
               });
               
-              pythonProcess.on('close', async () => {
+              pythonProcess.on('close', async (code) => {
+                console.log(`[AI Full Auto Pentest] Python process closed with code: ${code}`);
+                console.log(`[AI Full Auto Pentest] stdout length: ${stdout.length}`);
+                
                 try {
-                  const result = JSON.parse(stdout);
-                  if (result && result.success && result.result) {
+                  if (stdout.trim()) {
+                    const result = JSON.parse(stdout);
+                    if (result && result.success && result.result) {
+                      const stored = progressStore.get(progressKey);
+                      if (stored) {
+                        stored.result = result.result;
+                        stored.completed = true;
+                        stored.currentStage = 'Test completed';
+                        progressStore.set(progressKey, stored);
+                        console.log('[AI Full Auto Pentest] Test completed successfully');
+                      }
+                    } else {
+                      console.error('[AI Full Auto Pentest] Invalid result format:', result);
+                    }
+                  } else {
+                    console.error('[AI Full Auto Pentest] No stdout output from Python script');
                     const stored = progressStore.get(progressKey);
                     if (stored) {
-                      stored.result = result.result;
+                      stored.currentStage = 'Error: No output from Python script';
                       stored.completed = true;
                       progressStore.set(progressKey, stored);
                     }
                   }
                 } catch (error) {
-                  console.error('Error parsing result:', error);
+                  console.error('[AI Full Auto Pentest] Error parsing result:', error);
+                  console.error('[AI Full Auto Pentest] stdout content:', stdout.substring(0, 500));
+                  const stored = progressStore.get(progressKey);
+                  if (stored) {
+                    stored.currentStage = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
+                    stored.completed = true;
+                    progressStore.set(progressKey, stored);
+                  }
                 }
               });
             } catch (error) {
-              console.error('Python script execution error:', error);
+              console.error('[AI Full Auto Pentest] Python script execution error:', error);
+              const stored = progressStore.get(progressKey);
+              if (stored) {
+                stored.currentStage = `Error: ${error instanceof Error ? error.message : 'Execution failed'}`;
+                stored.completed = true;
+                progressStore.set(progressKey, stored);
+              }
+            }
+          } else {
+            console.error('[AI Full Auto Pentest] Python3 not found');
+            const stored = progressStore.get(progressKey);
+            if (stored) {
+              stored.currentStage = 'Error: Python3 not found';
+              stored.completed = true;
+              progressStore.set(progressKey, stored);
             }
           }
         } catch (error) {
-          console.error('Python check error:', error);
+          console.error('[AI Full Auto Pentest] Python check error:', error);
+          const stored = progressStore.get(progressKey);
+          if (stored) {
+            stored.currentStage = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
+            stored.completed = true;
+            progressStore.set(progressKey, stored);
+          }
         }
       })();
 

@@ -76,8 +76,13 @@ class AIAttackSurfaceDiscovery:
             
             # Discover endpoints
             discovered = []
+            total_patterns = sum(len(pattern_info['patterns']) for pattern_info in AIAttackSurfaceDiscovery.ENDPOINT_PATTERNS.values())
+            current_pattern = 0
+            
             for risk_level, pattern_info in AIAttackSurfaceDiscovery.ENDPOINT_PATTERNS.items():
+                print(json.dumps({'discovery': 'progress', 'stage': 'endpoint_scanning', 'risk_level': risk_level, 'message': f'Scanning {risk_level} risk endpoints...'}), file=sys.stderr, flush=True)
                 for pattern in pattern_info['patterns']:
+                    current_pattern += 1
                     # Build URL
                     test_path = pattern.replace('r/', '').replace("'", '')
                     test_url = f"{parsed.scheme}://{parsed.netloc}{base_path}{test_path}"
@@ -98,12 +103,20 @@ class AIAttackSurfaceDiscovery:
                                 'accessible': response.status_code in [200, 201, 301, 302]
                             }
                             discovered.append(endpoint_info)
+                            if len(discovered) % 5 == 0:  # Every 5 endpoints found
+                                print(json.dumps({'discovery': 'progress', 'endpoints_found': len(discovered), 'message': f'Found {len(discovered)} endpoints so far...'}), file=sys.stderr, flush=True)
                     except (RequestException, Timeout):
                         continue
+                    
+                    # Progress update every 10 patterns
+                    if current_pattern % 10 == 0:
+                        print(json.dumps({'discovery': 'progress', 'scanned': current_pattern, 'total': total_patterns, 'found': len(discovered), 'message': f'Scanned {current_pattern}/{total_patterns} patterns, found {len(discovered)} endpoints...'}), file=sys.stderr, flush=True)
             
             result['discovered_endpoints'] = discovered[:50]  # Limit to 50
+            print(json.dumps({'discovery': 'progress', 'endpoints_found': len(result['discovered_endpoints']), 'message': f'Endpoint discovery completed: {len(result["discovered_endpoints"])} endpoints found'}), file=sys.stderr, flush=True)
             
             # Detect technology stack
+            print(json.dumps({'discovery': 'progress', 'stage': 'tech_detection', 'message': 'Detecting technology stack...'}), file=sys.stderr, flush=True)
             try:
                 response = requests.get(base_url, timeout=5)
                 headers = response.headers
@@ -120,10 +133,12 @@ class AIAttackSurfaceDiscovery:
                         tech_stack[tech_type] = detected
                 
                 result['technology_stack'] = tech_stack
+                print(json.dumps({'discovery': 'progress', 'tech_stack': list(tech_stack.keys()), 'message': f'Technology stack detected: {", ".join(tech_stack.keys()) if tech_stack else "None"}'}), file=sys.stderr, flush=True)
             except:
                 pass
             
             # Calculate attack surface score
+            print(json.dumps({'discovery': 'progress', 'stage': 'scoring', 'message': 'Calculating attack surface score...'}), file=sys.stderr, flush=True)
             if discovered:
                 total_score = sum(ep['risk_score'] for ep in discovered)
                 result['attack_surface_score'] = min(100, total_score / len(discovered) * 10)
@@ -154,7 +169,7 @@ class AIAttackSurfaceDiscovery:
     
     @staticmethod
     def comprehensive_ai_discovery(target: str) -> Dict:
-        """Comprehensive AI-powered attack surface discovery"""
+        """Comprehensive AI-powered attack surface discovery with progress reporting"""
         result = {
             'success': True,
             'target': target,
