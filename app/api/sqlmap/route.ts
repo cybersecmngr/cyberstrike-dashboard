@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
     let injectionType = '';
 
     // Extract database names
-    const dbRegex = /available databases \[(\d+)\]:\s*([^\n]+(?:\n\s+\*[^\n]+)*)/s;
+    const dbRegex = /available databases \[(\d+)\]:\s*([\s\S]*?)(?=\n\n|\n[^\s*]|$)/;
     const dbMatch = output.match(dbRegex);
     if (dbMatch) {
       const dbList = dbMatch[2].match(/\*\s+([^\s]+)/g);
@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Extract tables (if --tables was run)
-    const tableRegex = /available tables \[(\d+)\]:\s*([^\n]+(?:\n\s+\*[^\n]+)*)/s;
+    const tableRegex = /available tables \[(\d+)\]:\s*([\s\S]*?)(?=\n\n|\n[^\s*]|$)/;
     const tableMatch = output.match(tableRegex);
     if (tableMatch) {
       const tableList = tableMatch[2].match(/\*\s+([^\s]+)/g);

@@ -128,8 +128,8 @@ export default function AIIntelligentPayload() {
                   <div className="mb-2 text-[10px]">
                     <div className="font-semibold mb-1">Payload Types:</div>
                     <div className="space-y-1 max-h-96 overflow-y-auto">
-                      {Object.keys(result.payloads).slice(0, 5).map((type, idx) => {
-                        const payloadData = result.payloads[type];
+                      {result.payloads && Object.keys(result.payloads).slice(0, 5).map((type, idx) => {
+                        const payloadData = result.payloads?.[type];
                         const payloads = payloadData?.generated_payloads || payloadData?.recommended_payloads || [];
                         const isExpanded = expandedTypes.has(type);
                         const displayPayloads = isExpanded ? payloads : payloads.slice(0, 3);

@@ -33,9 +33,13 @@ export default function KeyManager() {
   ]);
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [showKey, setShowKey] = useState(false);
-  const [newKey, setNewKey] = useState({
+  const [newKey, setNewKey] = useState<{
+    name: string;
+    type: 'ssh' | 'api' | 'gpg' | 'certificate' | 'other';
+    value: string;
+  }>({
     name: '',
-    type: 'ssh' as const,
+    type: 'ssh',
     value: '',
   });
 

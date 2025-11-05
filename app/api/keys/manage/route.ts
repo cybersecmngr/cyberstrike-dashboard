@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
         success: true,
         mock: true,
         private_key: '-----BEGIN PRIVATE KEY-----\nMOCK_KEY\n-----END PRIVATE KEY-----',
-        public_key: f'ssh-rsa AAAAB3... mock-public-key-{keyType}',
+        public_key: `ssh-rsa AAAAB3... mock-public-key-${keyType}`,
         key_type: keyType,
         bits,
         message: 'Python script not available. Returning mock data.',

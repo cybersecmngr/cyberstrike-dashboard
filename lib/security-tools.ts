@@ -354,7 +354,7 @@ export class SecurityTools {
                 id: osvdbMatch ? osvdbMatch[0] : `NIKTO-${vulnerabilities.length + 1}`,
                 severity: severityMatch ? severityMatch[0] : 'Unknown',
                 description: line.trim(),
-                cve: cveMatch ? cveMatch[0] : null,
+                cve: cveMatch ? cveMatch[0] : undefined,
                 url: host,
               });
             }
@@ -531,7 +531,7 @@ export class SecurityTools {
     let technique: string[] = [];
 
     // Extract databases
-    const dbRegex = /available databases \[(\d+)\]:\s*([^\n]+(?:\n\s+\*[^\n]+)*)/s;
+    const dbRegex = /available databases \[(\d+)\]:\s*([\s\S]*?)(?=\n\n|\n[^\s*]|$)/;
     const dbMatch = output.match(dbRegex);
     if (dbMatch) {
       const dbList = dbMatch[2].match(/\*\s+([^\s]+)/g);
@@ -555,7 +555,7 @@ export class SecurityTools {
     }
 
     // Extract tables
-    const tableRegex = /available tables \[(\d+)\]:\s*([^\n]+(?:\n\s+\*[^\n]+)*)/s;
+    const tableRegex = /available tables \[(\d+)\]:\s*([\s\S]*?)(?=\n\n|\n[^\s*]|$)/;
     const tableMatch = output.match(tableRegex);
     if (tableMatch) {
       const tableList = tableMatch[2].match(/\*\s+([^\s]+)/g);
