@@ -75,6 +75,7 @@ import AISecurityBypass from '@/components/widgets/AISecurityBypass';
 import AIPredictiveScanner from '@/components/widgets/AIPredictiveScanner';
 import AIAutonomousAgent from '@/components/widgets/AIAutonomousAgent';
 import AIFullAutoPentest from '@/components/widgets/AIFullAutoPentest';
+import IQ200UltimatePentest from '@/components/widgets/IQ200UltimatePentest';
 import {
   Shield,
   Activity,
@@ -91,7 +92,7 @@ import {
   Brain,
 } from 'lucide-react';
 
-type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint' | 'advanced' | 'zde' | 'ai';
+type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint' | 'advanced' | 'zde' | 'ai' | 'ccc';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
@@ -107,6 +108,7 @@ export default function Dashboard() {
     { id: 'advanced' as TabType, label: 'Advanced', icon: Zap },
     { id: 'zde' as TabType, label: 'Z.D.E', icon: Bug },
     { id: 'ai' as TabType, label: 'AI', icon: Brain },
+    { id: 'ccc' as TabType, label: 'C.C.C', icon: Terminal },
   ];
 
   return (
@@ -751,6 +753,259 @@ export default function Dashboard() {
               <AIPredictiveScanner />
               <AIAutonomousAgent />
             </div>
+          </motion.div>
+        )}
+
+        {/* CCC Tab - Custom Claude Code */}
+        {activeTab === 'ccc' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-4"
+          >
+            {/* IQ 200 Ultimate Pentest - Main Tool */}
+            <IQ200UltimatePentest />
+
+            {/* Hero Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="relative overflow-hidden rounded-xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0, 176, 0, 0.1) 0%, rgba(0, 176, 0, 0.02) 100%)',
+                border: '1px solid rgba(0, 176, 0, 0.3)',
+              }}
+            >
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-neon-green/30 blur-xl rounded-full animate-pulse" />
+                    <Terminal className="w-12 h-12 text-neon-green relative z-10" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-neon-green font-mono">CUSTOM CLAUDE CODE</h2>
+                    <p className="text-muted-foreground mt-1">IQ 200 - Maximum Creativity Data Exfiltration Modules</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                    <Database className="w-6 h-6 text-neon-green mb-2" />
+                    <h3 className="font-semibold text-sm mb-1">SQL Data Exfiltration</h3>
+                    <p className="text-xs text-muted-foreground">Comprehensive database dumps with table enumeration & data extraction</p>
+                  </div>
+                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                    <FileCode className="w-6 h-6 text-neon-green mb-2" />
+                    <h3 className="font-semibold text-sm mb-1">File Hunter</h3>
+                    <p className="text-xs text-muted-foreground">Recursive file system search with sensitive data extraction</p>
+                  </div>
+                  <div className="p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                    <Brain className="w-6 h-6 text-neon-green mb-2" />
+                    <h3 className="font-semibold text-sm mb-1">Genetic Payloads</h3>
+                    <p className="text-xs text-muted-foreground">30 population × 10 generations = Maximum WAF bypass</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Aggressive Data Exfiltrator */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                className="p-6 rounded-xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(26, 26, 28, 0.95) 0%, rgba(15, 15, 16, 0.95) 100%)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <Database className="w-8 h-8 text-neon-green" />
+                  <div>
+                    <h3 className="text-lg font-bold text-neon-green">Aggressive Data Exfiltrator</h3>
+                    <p className="text-xs text-muted-foreground">SQL Injection → Complete Database Dump</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Database Reconnaissance</p>
+                      <p className="text-xs text-muted-foreground">Version, name, user, privileges, all databases</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Table Enumeration</p>
+                      <p className="text-xs text-muted-foreground">information_schema → All tables, prioritized by sensitivity</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Column Discovery</p>
+                      <p className="text-xs text-muted-foreground">15 columns per table with intelligent mapping</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Data Extraction</p>
+                      <p className="text-xs text-muted-foreground">5 rows per table → users, passwords, API keys, credentials</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-3 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <p className="text-xs font-mono text-neon-green">
+                    ✅ UNION SELECT → ✅ information_schema → ✅ CONCAT_WS → ✅ Proof of Compromise
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Advanced File Hunter */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="p-6 rounded-xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(26, 26, 28, 0.95) 0%, rgba(15, 15, 16, 0.95) 100%)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <FileCode className="w-8 h-8 text-neon-green" />
+                  <div>
+                    <h3 className="text-lg font-bold text-neon-green">Advanced File Hunter</h3>
+                    <p className="text-xs text-muted-foreground">Command Injection → Recursive File Exfiltration</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">File Discovery (6 Categories)</p>
+                      <p className="text-xs text-muted-foreground">credentials, config, source, database, backups, logs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Recursive Search</p>
+                      <p className="text-xs text-muted-foreground">find /var/www, /home → locate → head -10 per pattern</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Content Extraction</p>
+                      <p className="text-xs text-muted-foreground">cat → 30 lines → 2000 chars per file</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green mt-1.5" />
+                    <div>
+                      <p className="text-foreground font-medium">Sensitive Data Patterns</p>
+                      <p className="text-xs text-muted-foreground">passwords, API keys, secrets, DB creds, hosts, users</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-3 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <p className="text-xs font-mono text-neon-green">
+                    📁 .env → 📁 config.php → 📁 id_rsa → 📁 .aws/credentials → 📁 database.yml
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Capabilities Overview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="p-6 rounded-xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(26, 26, 28, 0.95) 0%, rgba(15, 15, 16, 0.95) 100%)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+              }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Zap className="w-8 h-8 text-neon-green" />
+                <div>
+                  <h3 className="text-xl font-bold text-neon-green">IQ 200 Capabilities</h3>
+                  <p className="text-sm text-muted-foreground">Maximum creativity with fully automated evidence collection</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <div className="text-3xl font-bold text-neon-green mb-1">60+</div>
+                  <p className="text-xs text-muted-foreground">SQL Payloads</p>
+                  <p className="text-xs text-neon-green mt-1">Mutated</p>
+                </div>
+                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <div className="text-3xl font-bold text-neon-green mb-1">30×10</div>
+                  <p className="text-xs text-muted-foreground">Genetic Algorithm</p>
+                  <p className="text-xs text-neon-green mt-1">Population × Generations</p>
+                </div>
+                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <div className="text-3xl font-bold text-neon-green mb-1">15</div>
+                  <p className="text-xs text-muted-foreground">Concurrent Workers</p>
+                  <p className="text-xs text-neon-green mt-1">Multi-threaded</p>
+                </div>
+                <div className="p-4 rounded-lg text-center" style={{ background: 'rgba(0, 176, 0, 0.05)', border: '1px solid rgba(0, 176, 0, 0.2)' }}>
+                  <div className="text-3xl font-bold text-neon-green mb-1">100x</div>
+                  <p className="text-xs text-muted-foreground">More Evidence</p>
+                  <p className="text-xs text-neon-green mt-1">vs Standard</p>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 rounded-lg" style={{ background: 'rgba(0, 176, 0, 0.03)', border: '1px dashed rgba(0, 176, 0, 0.3)' }}>
+                <p className="text-sm text-center text-muted-foreground mb-3">
+                  <span className="text-neon-green font-semibold">Integration Status:</span> Fully integrated into NSA-Level Exploitation
+                </p>
+                <div className="flex items-center justify-center gap-6 text-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                    <span className="text-foreground">aggressive_data_exfiltrator.py</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                    <span className="text-foreground">advanced_file_hunter.py</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                    <span className="text-foreground">nsa_level_exploitation.py</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Documentation Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="p-4 rounded-xl text-center"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0, 176, 0, 0.1) 0%, rgba(0, 176, 0, 0.02) 100%)',
+                border: '1px solid rgba(0, 176, 0, 0.3)',
+              }}
+            >
+              <p className="text-sm text-muted-foreground">
+                📄 Full documentation available at: <span className="text-neon-green font-mono">scripts/IQ200_CAPABILITIES.md</span>
+              </p>
+              <p className="text-xs text-muted-foreground mt-2">
+                ⚠️ Authorization required • Only use on systems you have permission to test
+              </p>
+            </motion.div>
           </motion.div>
         )}
         </div>

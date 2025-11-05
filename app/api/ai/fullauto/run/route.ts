@@ -255,8 +255,24 @@ export async function POST(request: NextRequest) {
                   console.error('[AI Full Auto Pentest] stdout content:', stdout.substring(0, 500));
                   const stored = progressStore.get(progressKey);
                   if (stored) {
-                    stored.currentStage = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
+                    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+                    stored.currentStage = `Error: ${errorMessage}`;
                     stored.completed = true;
+                    stored.result = {
+                      target: target,
+                      stages: [],
+                      vulnerabilities_found: [],
+                      risk_score: 0,
+                      status: 'error',
+                      summary: {
+                        exploits_successful: 0,
+                        access_gained: false,
+                        duration: 'N/A',
+                        total_requests: 'N/A'
+                      }
+                    };
+                    // Store error message in currentStage for frontend
+                    stored.currentStage = `Error: ${errorMessage}`;
                     progressStore.set(progressKey, stored);
                   }
                 }
