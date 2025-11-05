@@ -36,7 +36,16 @@ except ImportError:
 
 class NSALevelDiscovery:
     """NSA-level advanced discovery with revolutionary techniques"""
-    
+
+    def __init__(self, target: str):
+        """Initialize NSALevelDiscovery with target URL"""
+        self.target = target
+        self.parsed_url = urlparse(target)
+
+    def comprehensive_discovery(self) -> Dict:
+        """Wrapper for comprehensive_nsa_discovery using instance target"""
+        return self.comprehensive_nsa_discovery(self.target)
+
     # Extended endpoint patterns (1000+ patterns)
     EXTENDED_ENDPOINT_PATTERNS = {
         'critical': [
