@@ -62,6 +62,19 @@ import NetworkPenTester from '@/components/widgets/NetworkPenTester';
 import AIVulnPredictor from '@/components/widgets/AIVulnPredictor';
 import ExploitChainBuilder from '@/components/widgets/ExploitChainBuilder';
 import ThreatIntelMapper from '@/components/widgets/ThreatIntelMapper';
+import AdvancedPersistence from '@/components/widgets/AdvancedPersistence';
+import EvasionAntiForensics from '@/components/widgets/EvasionAntiForensics';
+import AISocialEngineering from '@/components/widgets/AISocialEngineering';
+import AdvancedCryptoBreaker from '@/components/widgets/AdvancedCryptoBreaker';
+import ProtocolFuzzer from '@/components/widgets/ProtocolFuzzer';
+import AIAttackSurfaceDiscovery from '@/components/widgets/AIAttackSurfaceDiscovery';
+import AIIntelligentPayload from '@/components/widgets/AIIntelligentPayload';
+import AIAdaptiveFuzzer from '@/components/widgets/AIAdaptiveFuzzer';
+import AIBehavioralAnalyzer from '@/components/widgets/AIBehavioralAnalyzer';
+import AISecurityBypass from '@/components/widgets/AISecurityBypass';
+import AIPredictiveScanner from '@/components/widgets/AIPredictiveScanner';
+import AIAutonomousAgent from '@/components/widgets/AIAutonomousAgent';
+import AIFullAutoPentest from '@/components/widgets/AIFullAutoPentest';
 import {
   Shield,
   Activity,
@@ -75,9 +88,10 @@ import {
   Network,
   FileCode,
   Zap,
+  Brain,
 } from 'lucide-react';
 
-type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint' | 'advanced' | 'zde';
+type TabType = 'dashboard' | 'tools' | 'scanner' | 'osint' | 'advanced' | 'zde' | 'ai';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
@@ -92,6 +106,7 @@ export default function Dashboard() {
     { id: 'osint' as TabType, label: 'OSINT', icon: Search },
     { id: 'advanced' as TabType, label: 'Advanced', icon: Zap },
     { id: 'zde' as TabType, label: 'Z.D.E', icon: Bug },
+    { id: 'ai' as TabType, label: 'AI', icon: Brain },
   ];
 
   return (
@@ -710,6 +725,31 @@ export default function Dashboard() {
               <AIVulnPredictor />
               <ExploitChainBuilder />
               <ThreatIntelMapper />
+              <AdvancedPersistence />
+              <EvasionAntiForensics />
+              <AISocialEngineering />
+              <AdvancedCryptoBreaker />
+              <ProtocolFuzzer />
+            </div>
+          </motion.div>
+        )}
+
+        {/* AI Tab */}
+        {activeTab === 'ai' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-3"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <AIFullAutoPentest />
+              <AIAttackSurfaceDiscovery />
+              <AIIntelligentPayload />
+              <AIAdaptiveFuzzer />
+              <AIBehavioralAnalyzer />
+              <AISecurityBypass />
+              <AIPredictiveScanner />
+              <AIAutonomousAgent />
             </div>
           </motion.div>
         )}
