@@ -67,9 +67,14 @@ class AIAttackSurfaceDiscovery:
             'vulnerability_predictions': []
         }
         
+        # Ensure URL has protocol
+        if not base_url.startswith(('http://', 'https://')):
+            base_url = 'https://' + base_url
+            result['base_url'] = base_url
+        
         try:
-            import requests
-            from requests.exceptions import RequestException, Timeout
+            import requests  # type: ignore
+            from requests.exceptions import RequestException, Timeout  # type: ignore
             
             parsed = urlparse(base_url)
             base_path = parsed.path.rstrip('/')
@@ -83,14 +88,29 @@ class AIAttackSurfaceDiscovery:
                 print(json.dumps({'discovery': 'progress', 'stage': 'endpoint_scanning', 'risk_level': risk_level, 'message': f'Scanning {risk_level} risk endpoints...'}), file=sys.stderr, flush=True)
                 for pattern in pattern_info['patterns']:
                     current_pattern += 1
-                    # Build URL
-                    test_path = pattern.replace('r/', '').replace("'", '')
-                    test_url = f"{parsed.scheme}://{parsed.netloc}{base_path}{test_path}"
+                    # Build URL - patterns are already strings (r'/admin' becomes '/admin' in Python)
+                    # Just ensure it starts with /
+                    test_path = str(pattern).strip()
+                    if not test_path.startswith('/'):
+                        test_path = '/' + test_path
+                    test_url = f"{parsed.scheme}://{parsed.netloc}{test_path}"
+                    
+                    # Debug: log first few attempts
+                    if current_pattern <= 3:
+                        print(json.dumps({'discovery': 'debug', 'test_url': test_url, 'test_path': test_path}), file=sys.stderr, flush=True)
                     
                     try:
-                        response = requests.get(test_url, timeout=5, allow_redirects=False)
+                        response = requests.get(test_url, timeout=5, allow_redirects=False, headers={
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                            'Accept-Language': 'en-US,en;q=0.5'
+                        })
                         
-                        if response.status_code not in [404, 403]:
+                        # Accept any status code except 404 (not found)
+                        # 403 (forbidden) means endpoint exists but protected - this is valuable info!
+                        # 401 (unauthorized) also means endpoint exists
+                        # 500 (server error) might indicate endpoint exists but has issues
+                        if response.status_code not in [404]:
                             endpoint_info = {
                                 'endpoint': test_path,
                                 'url': test_url,
@@ -163,13 +183,20 @@ class AIAttackSurfaceDiscovery:
             ]
             
         except ImportError:
-            pass
+            print(json.dumps({'discovery': 'error', 'message': 'requests library not available'}), file=sys.stderr, flush=True)
+        except Exception as e:
+            print(json.dumps({'discovery': 'error', 'message': f'Discovery error: {str(e)}'}), file=sys.stderr, flush=True)
+            result['error'] = str(e)
         
         return result
     
     @staticmethod
     def comprehensive_ai_discovery(target: str) -> Dict:
         """Comprehensive AI-powered attack surface discovery with progress reporting"""
+        # Ensure URL has protocol
+        if not target.startswith(('http://', 'https://')):
+            target = 'https://' + target
+        
         result = {
             'success': True,
             'target': target,
@@ -183,8 +210,41 @@ class AIAttackSurfaceDiscovery:
         }
         
         try:
-            # Intelligent endpoint discovery
-            discovery = AIAttackSurfaceDiscovery.intelligent_endpoint_discovery(target)
+            print(json.dumps({'discovery': 'start', 'target': target, 'message': 'Starting comprehensive discovery...'}), file=sys.stderr, flush=True)
+            
+            # Use NSA-level discovery if available - CRITICAL: Always try NSA-level first
+            NSALevelDiscovery = None
+            try:
+                import sys
+                import os
+                script_dir = os.path.dirname(os.path.abspath(__file__))
+                if script_dir not in sys.path:
+                    sys.path.insert(0, script_dir)
+                
+                from nsa_level_discovery import NSALevelDiscovery
+                print(json.dumps({'discovery': 'upgrade', 'message': 'Upgrading to NSA-level discovery engine...'}), file=sys.stderr, flush=True)
+                
+                # CRITICAL: Use NSA-level discovery - this takes time but is thorough
+                discovery_result = NSALevelDiscovery.comprehensive_nsa_discovery(target)
+                
+                # Convert NSA discovery format to our format
+                discovery = {
+                    'base_url': target,
+                    'discovered_endpoints': discovery_result.get('discovered_endpoints', []),
+                    'technology_stack': discovery_result.get('technology_stack', {}),
+                    'attack_surface_score': discovery_result.get('attack_surface_score', 0.0),
+                    'vulnerability_predictions': []
+                }
+                
+                print(json.dumps({'discovery': 'nsa_complete', 'endpoints': len(discovery['discovered_endpoints']), 'tech_stack': list(discovery['technology_stack'].keys()), 'message': f'NSA-level discovery completed: {len(discovery["discovered_endpoints"])} endpoints, {len(discovery["technology_stack"])} tech stacks detected'}), file=sys.stderr, flush=True)
+            except ImportError as e:
+                print(json.dumps({'discovery': 'nsa_import_error', 'error': str(e), 'message': 'NSA-level discovery not available, falling back to standard discovery...'}), file=sys.stderr, flush=True)
+                # Fallback to standard discovery
+                discovery = AIAttackSurfaceDiscovery.intelligent_endpoint_discovery(target)
+            except Exception as e:
+                print(json.dumps({'discovery': 'nsa_error', 'error': str(e), 'message': f'NSA-level discovery failed: {str(e)}, falling back to standard discovery...'}), file=sys.stderr, flush=True)
+                # Fallback to standard discovery
+                discovery = AIAttackSurfaceDiscovery.intelligent_endpoint_discovery(target)
             result['discovery_results'] = discovery
             
             # Summary

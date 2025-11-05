@@ -95,19 +95,118 @@ export async function POST(request: NextRequest) {
                         const stored = progressStore.get(progressKey);
                         if (stored) {
                           stored.currentStage = update.message || `${update.stage}: ${update.status}`;
-                          stored.stageProgress[update.stage] = update;
+                          // CRITICAL: For exploitation stage, preserve exploits_successful
+                          if (update.stage === 'exploitation' && update.exploits_successful !== undefined) {
+                            stored.stageProgress[update.stage] = {
+                              ...update,
+                              exploits_successful: update.exploits_successful,
+                              vulnerabilities_exploited: update.vulnerabilities_exploited || update.vulnerabilities_exploited_count || 0,
+                              access_gained: update.access_gained || false
+                            };
+                          } else {
+                            stored.stageProgress[update.stage] = update;
+                          }
                           progressStore.set(progressKey, stored);
-                          console.log(`[AI Full Auto Pentest] Stage update: ${update.stage} - ${update.status}`);
+                          console.log(`[AI Full Auto Pentest] Stage update: ${update.stage} - ${update.status}`, update.exploits_successful !== undefined ? `exploits_successful: ${update.exploits_successful}` : '');
                         }
                       } else if (update.discovery) {
-                        // Handle discovery progress updates
+                        // Handle discovery progress updates - CRITICAL: Log all discovery messages
                         const stored = progressStore.get(progressKey);
                         if (stored) {
-                          stored.currentStage = update.message || 'Discovery in progress...';
-                          // Store discovery progress separately
-                          (stored as { discovery_progress?: unknown }).discovery_progress = update;
+                          // Update current stage with discovery message
+                          if (update.message) {
+                            stored.currentStage = update.message;
+                          }
+                          // Store discovery progress separately (always update, don't replace)
+                          (stored as { discovery_progress?: unknown }).discovery_progress = {
+                            ...update,
+                            timestamp: Date.now() // Add timestamp to make each update unique
+                          };
                           progressStore.set(progressKey, stored);
-                          console.log(`[AI Full Auto Pentest] Discovery progress: ${update.message}`);
+                          console.log(`[AI Full Auto Pentest] Discovery progress: ${update.message || 'No message'}`, {
+                            method: update.method,
+                            found: update.found,
+                            stage: update.stage,
+                            tech_stack: update.tech_stack
+                          });
+                        }
+                      } else if (update.message && (
+                        update.message.includes('discovery') || 
+                        update.message.includes('Discovery') ||
+                        update.message.includes('Scanning') ||
+                        update.message.includes('pattern') ||
+                        update.message.includes('Technology') ||
+                        update.message.includes('Upgrading to NSA-level')
+                      )) {
+                        // CRITICAL: Also catch discovery messages that might not have discovery key
+                        const stored = progressStore.get(progressKey);
+                        if (stored) {
+                          stored.currentStage = update.message;
+                          (stored as { discovery_progress?: unknown }).discovery_progress = {
+                            discovery: true,
+                            message: update.message,
+                            timestamp: Date.now()
+                          };
+                          progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Discovery message (from general): ${update.message}`);
+                        }
+                      } else if (update.stage === 'exploitation' && update.status === 'completed') {
+                        // CRITICAL: Handle exploitation completion with exploits_successful
+                        const stored = progressStore.get(progressKey);
+                        if (stored) {
+                          if (!stored.stageProgress) {
+                            stored.stageProgress = {};
+                          }
+                          stored.stageProgress['exploitation'] = {
+                            stage: 'exploitation',
+                            status: 'completed',
+                            message: update.message || 'Exploitation completed',
+                            exploits_successful: update.exploits_successful || 0,
+                            vulnerabilities_exploited: update.vulnerabilities_exploited_count || 0,
+                            access_gained: update.access_gained || false,
+                            critical_findings: update.critical_findings || 0
+                          };
+                          stored.currentStage = update.message || 'Exploitation completed';
+                          progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Exploitation completed: ${update.exploits_successful || 0} exploits successful`);
+                        }
+                      } else if (update.stage === 'exploitation' && update.status === 'in_progress') {
+                        // CRITICAL: Handle exploitation in-progress updates
+                        const stored = progressStore.get(progressKey);
+                        if (stored) {
+                          if (!stored.stageProgress) {
+                            stored.stageProgress = {};
+                          }
+                          stored.stageProgress['exploitation'] = {
+                            stage: 'exploitation',
+                            status: 'in_progress',
+                            message: 'Exploitation in progress...',
+                            exploits_successful: update.exploits_successful || 0,
+                            vulnerabilities_exploited: update.vulnerabilities_exploited || 0,
+                            access_gained: update.access_gained || false
+                          };
+                          progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Exploitation in progress: ${update.exploits_successful || 0} exploits successful`);
+                        }
+                      } else if (update.exploitation === 'results_summary') {
+                        // CRITICAL: Handle exploitation results summary
+                        const stored = progressStore.get(progressKey);
+                        if (stored) {
+                          if (!stored.stageProgress) {
+                            stored.stageProgress = {};
+                          }
+                          stored.stageProgress['exploitation'] = {
+                            stage: 'exploitation',
+                            status: 'completed',
+                            message: update.message || 'Exploitation completed',
+                            exploits_successful: update.exploits_successful || 0,
+                            vulnerabilities_exploited: update.vulnerabilities_exploited_count || 0,
+                            access_gained: update.access_gained || false,
+                            critical_findings: 0
+                          };
+                          stored.currentStage = update.message || 'Exploitation completed';
+                          progressStore.set(progressKey, stored);
+                          console.log(`[AI Full Auto Pentest] Exploitation summary: ${update.exploits_successful || 0} exploits successful`);
                         }
                       }
                     } catch {
